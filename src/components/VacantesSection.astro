@@ -1,0 +1,223 @@
+---
+/**
+ * Componente: VacantesSection
+ *
+ * Muestra el listado de oportunidades laborales y eventos de reclutamiento.
+ *
+ * INTEGRACIÓN CON WORDPRESS:
+ * - Este contenido DEBE ser un Custom Post Type (CPT) llamado "Vacantes" o "Empleos".
+ * - Campos sugeridos:
+ *   - Título del Puesto
+ *   - Empresa (Texto o relación con CPT "Miembros")
+ *   - Ubicación
+ *   - Tipo de contrato (Tiempo completo, Prácticas, etc.)
+ *   - Enlace de aplicación
+ *   - Fecha de cierre
+ *
+ * - Los "Eventos de Reclutamiento" pueden ser otro CPT o una categoría especial dentro de "Noticias".
+ */
+import { Icon } from "astro-icon/components";
+
+// Datos simulados para la lista de vacantes
+const vacancies = [
+  {
+    company: "GE Aviation",
+    initials: "GE",
+    title: "Ingeniero de Diseño Mecánico",
+    location: "Querétaro, Qro.",
+    type: "Tiempo Completo",
+    typeColor: "bg-blue-100 text-blue-700",
+  },
+  {
+    company: "Safran",
+    initials: "SF",
+    title: "Practicante de Calidad",
+    location: "Chihuahua, Chih.",
+    type: "Prácticas",
+    typeColor: "bg-yellow-100 text-yellow-700",
+  },
+  {
+    company: "Honeywell",
+    initials: "HW",
+    title: "Supervisor de Producción",
+    location: "Mexicali, B.C.",
+    type: "Tiempo Completo",
+    typeColor: "bg-blue-100 text-blue-700",
+  },
+  {
+    company: "Airbus",
+    initials: "AB",
+    title: "Especialista en Aviónica",
+    location: "Querétaro, Qro.",
+    type: "Tiempo Completo",
+    typeColor: "bg-blue-100 text-blue-700",
+  },
+  {
+    company: "Gulfstream",
+    initials: "GL",
+    title: "Técnico de Materiales Compuestos",
+    location: "Mexicali, B.C.",
+    type: "Tiempo Completo",
+    typeColor: "bg-blue-100 text-blue-700",
+  },
+];
+---
+
+<section id="vacantes" class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- 1. BANNER PRINCIPAL -->
+    <div
+      class="bg-comea-main rounded-2xl p-8 text-center text-white mb-10 relative overflow-hidden shadow-2xl shadow-blue-900/40"
+    >
+      <div class="absolute top-0 left-0 w-full h-full bg-slate-900 opacity-50">
+      </div>
+      <div class="relative z-10">
+        <h1 class="text-3xl font-bold mb-2">Bolsa de Talento Aeroespacial</h1>
+        <p class="text-blue-200">
+          Conectando a los mejores egresados con la industria líder.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. GRID DE EVENTOS (Lo que te gustó de la versión nueva) -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <!-- Evento 1 -->
+      <div
+        class="bg-white dark:bg-dark-card p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+      >
+        <div>
+          <span
+            class="inline-block px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded mb-3"
+            >Evento Virtual</span
+          >
+          <h3 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-2">
+            Feria Virtual de Reclutamiento
+          </h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+            Organizan FEMIA y COMEA. Encuentra el mejor talento nacional.
+          </p>
+        </div>
+        <button
+          class="w-full py-2 border border-comea-main text-comea-main dark:border-comea-tech dark:text-comea-tech rounded-lg font-bold text-sm hover:bg-comea-main hover:text-white transition-colors"
+          >Ver detalles</button
+        >
+      </div>
+
+      <!-- Evento 2 -->
+      <div
+        class="bg-white dark:bg-dark-card p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+      >
+        <div>
+          <span
+            class="inline-block px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded mb-3"
+            >Internacional</span
+          >
+          <h3 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-2">
+            Journées Québec MEXIQUE 2025
+          </h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+            Encuentra empleo en el sector aeroespacial en Montréal.
+          </p>
+        </div>
+        <button
+          class="w-full py-2 border border-comea-main text-comea-main dark:border-comea-tech dark:text-comea-tech rounded-lg font-bold text-sm hover:bg-comea-main hover:text-white transition-colors"
+          >Aplicar ahora</button
+        >
+      </div>
+    </div>
+
+    <!-- 3. LISTA DE VACANTES (La versión clásica que extrañabas) -->
+    <div
+      class="bg-white dark:bg-dark-card rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-xl"
+    >
+      <!-- Header de Filtros -->
+      <div
+        class="p-5 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 flex flex-col md:flex-row gap-4 justify-between items-center"
+      >
+        <h3
+          class="font-bold text-xl text-slate-800 dark:text-white flex items-center gap-2"
+        >
+          <Icon
+            name="fa6-solid:briefcase"
+            class="text-comea-main dark:text-comea-tech"
+          />
+          Últimas Vacantes
+        </h3>
+
+        <div class="flex gap-2 w-full md:w-auto overflow-x-auto no-scrollbar">
+          <div class="relative flex-1 min-w-[200px]">
+            <Icon
+              name="fa6-solid:magnifying-glass"
+              class="absolute left-3 top-3 text-slate-400 text-xs"
+            />
+            <input
+              type="text"
+              placeholder="Buscar puesto..."
+              class="w-full pl-9 pr-4 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-comea-tech"
+            />
+          </div>
+          <select
+            class="p-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white cursor-pointer"
+          >
+            <option>Ubicación</option>
+            <option>Querétaro</option>
+            <option>Chihuahua</option>
+            <option>Baja California</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Listado -->
+      <div class="divide-y divide-slate-100 dark:divide-slate-700">
+        {
+          vacancies.map((job) => (
+            <div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer">
+              <div class="flex gap-4 items-center">
+                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner flex-shrink-0">
+                  {job.initials}
+                </div>
+                <div>
+                  <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors">
+                    {job.title}
+                  </h3>
+                  <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <span class="font-semibold">
+                      <Icon name="fa6-solid:building" class="mr-1 inline" />{" "}
+                      {job.company}
+                    </span>
+                    <span>
+                      <Icon name="fa6-solid:location-dot" class="mr-1 inline" />{" "}
+                      {job.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0">
+                <span
+                  class={`px-3 py-1 rounded-full ${job.typeColor} text-[10px] font-bold uppercase tracking-wide`}
+                >
+                  {job.type}
+                </span>
+                <Icon
+                  name="fa6-solid:chevron-right"
+                  class="text-slate-300 group-hover:text-comea-main transition-colors"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Footer de Lista -->
+      <div
+        class="p-4 bg-slate-50 dark:bg-slate-800/50 text-center border-t border-slate-200 dark:border-slate-700"
+      >
+        <button
+          class="text-comea-main dark:text-comea-tech font-bold text-sm hover:underline"
+        >
+          Ver listado completo (70+ vacantes)
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

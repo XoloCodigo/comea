@@ -1,0 +1,150 @@
+---
+/**
+ * Componente: NewsSection
+ * 
+ * Muestra el listado de noticias recientes.
+ * 
+ * INTEGRACIÓN CON WORDPRESS:
+ * - Este contenido corresponde a las "Entradas" (Posts) nativas de WordPress.
+ * - Campos nativos a usar:
+ *   - Título (Post Title)
+ *   - Contenido (Post Content) -> Se inyectará en el sidebar.
+ *   - Extracto (Excerpt) -> Para la tarjeta de resumen.
+ *   - Imagen Destacada (Featured Image).
+ *   - Categorías (Taxonomía nativa).
+ *   - Fecha de publicación.
+ * 
+ * NOTA: El array `newsArticles` simula la respuesta que recibiríamos de la API de WordPress.
+ */
+import { Icon } from 'astro-icon/components';
+
+// DATOS DE LAS NOTICIAS
+const newsArticles = [
+    {
+        id: 'famex-2025',
+        date: 'Abril 2025',
+        category: 'Evento',
+        title: 'Participación COMEA en FAMEX 2025',
+        summary: 'COMEA tuvo una destacada participación en la Feria Aeroespacial México, fortaleciendo nuestra presencia y generando vínculos estratégicos.',
+        images: [
+           'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1559297434-fae8a1916a79?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        ],
+        content: `
+            <p class="mb-4 text-lg leading-relaxed">El Consejo Mexicano de Educación Aeroespacial (COMEA) se hizo presente con éxito en la Feria Aeroespacial México (FAMEX), consolidando su papel como puente entre la academia y la industria.</p>
+            <p class="mb-4 leading-relaxed">Durante el evento, nuestro Director, Ing. Federico Fuentes Pérez, encabezó la delegación con el objetivo de establecer nuevas alianzas estratégicas.</p>
+            <h3 class="font-bold text-xl text-comea-main dark:text-white mt-6 mb-3">Logros Destacados</h3>
+            <ul class="list-disc pl-5 mb-4 space-y-2">
+                <li>Fortalecimiento de lazos con la industria de fabricación y mantenimiento.</li>
+                <li>Presentación del avance de la Agenda Estratégica 2030.</li>
+                <li>Reuniones clave con delegaciones internacionales.</li>
+            </ul>
+            <p class="mt-6 text-sm text-slate-500">Agradecemos a los organizadores por la invitación y la cálida recepción.</p>
+        `
+    },
+    {
+        id: 'reforma-laboral',
+        date: 'Octubre 2025',
+        category: 'Legislación',
+        title: 'Análisis: Reforma a la Jornada Laboral en México',
+        summary: 'Análisis del impacto de las nuevas reformas laborales en el sector industrial y académico aeroespacial.',
+        images: [
+            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        ],
+        content: `
+            <p class="mb-4 text-lg leading-relaxed">La nueva legislación laboral en México impacta directamente los planes de estudio y la estructura de las prácticas profesionales en el sector aeroespacial.</p>
+            <p class="mb-4 leading-relaxed">COMEA organizó un simposio para analizar las implicaciones para el talento humano y la competitividad del sector.</p>
+            <h3 class="font-bold text-xl text-comea-main dark:text-white mt-6 mb-3">Puntos Clave Discutidos</h3>
+            <ul class="list-disc pl-5 mb-4 space-y-2">
+                <li>Ajustes en el tiempo dedicado a la capacitación y formación dual.</li>
+                <li>Implicaciones en la certificación de técnicos y especialistas.</li>
+                <li>Necesidad de actualizar el currículo para alinearse a las nuevas horas laborales.</li>
+            </ul>
+        `
+    }
+];
+---
+
+<section id="noticias" class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+        <h1 class="text-4xl font-bold text-comea-main dark:text-white mb-10 border-b border-slate-200 dark:border-slate-700 pb-4">Sala de Prensa</h1>
+        
+        <div class="space-y-10">
+            {newsArticles.map((article) => (
+                <div class="flex flex-col md:flex-row gap-6 group bg-white dark:bg-dark-card rounded-xl p-4 shadow-sm hover:shadow-lg transition-shadow border border-slate-100 dark:border-slate-800">
+                    <!-- Imagen / Icono (Usamos la primera imagen como miniatura) -->
+                    <div class="w-full md:w-1/3 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                        <img 
+                            src={article.images[0]} 
+                            alt={`Imagen de ${article.title}`} 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                    
+                    <!-- Texto y Botón -->
+                    <div class="w-full md:w-2/3 flex flex-col justify-center py-2">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class={`px-3 py-1 text-xs rounded-full font-bold ${article.category === 'Evento' ? 'bg-comea-main text-white' : 'bg-slate-200 text-slate-700'}`}>
+                                {article.category}
+                            </span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">{article.date}</span>
+                        </div>
+                        
+                        <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-comea-tech transition-colors">
+                            {article.title}
+                        </h2>
+                        
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
+                            {article.summary}
+                        </p>
+                        
+                        <!-- BOTÓN LEER MÁS -->
+                        <button 
+                            type="button"
+                            class="text-comea-main dark:text-comea-tech font-bold text-sm hover:underline flex items-center cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-comea-tech rounded"
+                            onclick={`openNewsById('${article.id}')`}
+                        >
+                            Leer más <Icon name="fa6-solid:angle-right" class="ml-2" />
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+        
+        <!-- Paginación (Visual) -->
+        <div class="flex justify-center mt-12 space-x-2">
+            <button class="px-4 py-2 text-white bg-comea-main rounded-lg text-sm font-semibold hover:bg-comea-light transition-colors">1</button>
+            <button class="px-4 py-2 text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">2</button>
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPT DE LA SECCIÓN: Lógica de conexión CON TOGGLE -->
+<script define:vars={{ newsArticles }} is:inline>
+    window.comeaNewsData = newsArticles;
+    window.currentOpenNewsId = null;
+
+    window.openNewsById = (id) => {
+        const sidebar = document.getElementById('news-sidebar');
+        const isSidebarOpen = sidebar && !sidebar.style.transform.includes('100%');
+
+        if (isSidebarOpen && window.currentOpenNewsId === id) {
+            if (typeof window.closeNewsDetail === 'function') {
+                window.closeNewsDetail();
+            }
+            window.currentOpenNewsId = null;
+        } 
+        else {
+            const article = window.comeaNewsData.find(a => a.id === id);
+            if (article && typeof window.openNewsDetail === 'function') {
+                window.openNewsDetail(article);
+                window.currentOpenNewsId = id;
+            } else {
+                console.error("Error: No se encontró la noticia o el Sidebar no está listo.");
+            }
+        }
+    };
+</script>

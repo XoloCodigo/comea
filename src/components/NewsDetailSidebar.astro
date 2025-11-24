@@ -1,0 +1,152 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<!-- 
+    1. OVERLAY (FONDO OSCURO)
+    Z-index: 50 (Detrás del panel)
+-->
+<div
+  id="news-overlay"
+  class="fixed inset-0 bg-slate-900/60 z-[50] opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-sm"
+  onclick="window.closeNewsDetail()"
+>
+</div>
+
+<!-- 
+    2. PANEL LATERAL (SIDEBAR)
+    Z-index: 60 (Encima del overlay)
+    Fondo: Blanco PURO (bg-white) sin filtros extraños en móvil.
+-->
+<div
+  id="news-sidebar"
+  style="transform: translateX(100%);"
+  class="fixed inset-y-0 right-0 z-[60] w-full lg:w-2/3 xl:w-1/2
+           bg-white dark:bg-dark-card
+           shadow-2xl transition-transform duration-500 ease-in-out
+           border-l border-transparent dark:border-slate-800"
+>
+  <!-- Botón para CERRAR (La X) -->
+  <button
+    onclick="window.closeNewsDetail()"
+    class="absolute top-6 right-6 lg:right-12 text-slate-400 hover:text-comea-main dark:hover:text-comea-tech text-3xl transition-colors z-20 hover:rotate-90 duration-300"
+    aria-label="Cerrar Noticia"
+  >
+    <Icon name="fa6-solid:circle-xmark" />
+  </button>
+
+  <!-- Área de Contenido con Scroll -->
+  <div
+    id="news-content-area"
+    class="h-full relative overflow-y-auto pt-8 pb-16 px-6 sm:px-12 lg:pl-16 lg:pr-12"
+  >
+    <!-- Cabecera (Título, Fecha, Categoría) -->
+    <div class="mb-8 border-b border-slate-100 dark:border-slate-800 pb-6">
+      <span
+        id="detail-category"
+        class="px-3 py-1 bg-comea-accent/20 text-comea-main dark:text-comea-accent text-xs rounded-full font-bold uppercase shadow-sm tracking-wide"
+      ></span>
+      <p
+        class="text-sm text-slate-500 mt-4 mb-2 font-medium flex items-center gap-2"
+      >
+        <Icon name="fa6-regular:calendar" class="text-comea-tech" />
+        <span id="detail-date"></span>
+      </p>
+      <h2
+        id="detail-title"
+        class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white leading-tight mt-2"
+      >
+      </h2>
+    </div>
+
+    <!-- Cuerpo del Texto -->
+    <div
+      id="detail-body"
+      class="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed"
+    >
+      <!-- Contenido -->
+    </div>
+
+    <!-- Galería de Imágenes (AHORA AL FINAL) -->
+    <!-- Se muestra debajo del texto con un margen superior (mt-8) -->
+    <div
+      id="detail-images"
+      class="gap-3 mt-8 hidden border-t border-slate-100 dark:border-slate-800 pt-8"
+    >
+      <!-- Se inyectan vía JS -->
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Función ABRIR
+  window.openNewsDetail = function (data) {
+    const sidebar = document.getElementById("news-sidebar");
+    const overlay = document.getElementById("news-overlay");
+
+    // 1. Inyectar Datos
+    if (data) {
+      const titleEl = document.getElementById("detail-title");
+      const dateEl = document.getElementById("detail-date");
+      const catEl = document.getElementById("detail-category");
+      const bodyEl = document.getElementById("detail-body");
+      const imagesEl = document.getElementById("detail-images");
+
+      if (titleEl) titleEl.innerText = data.title || "";
+      if (dateEl) dateEl.innerText = data.date || "";
+      if (catEl) catEl.innerText = data.category || "";
+      if (bodyEl) bodyEl.innerHTML = data.content || "";
+
+      // Galería de Imágenes
+      if (imagesEl) {
+        if (data.images && data.images.length > 0) {
+          imagesEl.innerHTML = data.images
+            .map(
+              (url) => `
+                        <div class="rounded-lg overflow-hidden shadow-md h-48 group relative cursor-zoom-in">
+                            <img src="${url}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Noticia">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                    `
+            )
+            .join("");
+          imagesEl.classList.remove("hidden");
+          imagesEl.classList.add("grid"); // Agregar grid cuando se muestra
+          // Ajustamos el grid si hay solo 1 imagen para que ocupe todo el ancho
+          if (data.images.length === 1) {
+            imagesEl.classList.remove("grid-cols-2");
+            imagesEl.classList.add("grid-cols-1");
+          } else {
+            imagesEl.classList.add("grid-cols-2");
+            imagesEl.classList.remove("grid-cols-1");
+          }
+        } else {
+          imagesEl.classList.add("hidden");
+          imagesEl.classList.remove("grid", "grid-cols-1", "grid-cols-2"); // Remover grid cuando se oculta
+          imagesEl.innerHTML = "";
+        }
+      }
+    }
+
+    // 2. Mostrar (Animaciones)
+    if (sidebar) sidebar.style.transform = "translateX(0)";
+    if (overlay) {
+      overlay.classList.remove("opacity-0", "pointer-events-none");
+      overlay.classList.add("opacity-100", "pointer-events-auto");
+    }
+    document.body.style.overflow = "hidden";
+  };
+
+  // Función CERRAR
+  window.closeNewsDetail = function () {
+    const sidebar = document.getElementById("news-sidebar");
+    const overlay = document.getElementById("news-overlay");
+
+    if (sidebar) sidebar.style.transform = "translateX(100%)";
+    if (overlay) {
+      overlay.classList.remove("opacity-100", "pointer-events-auto");
+      overlay.classList.add("opacity-0", "pointer-events-none");
+    }
+    document.body.style.overflow = "";
+  };
+</script>

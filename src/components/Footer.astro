@@ -1,0 +1,77 @@
+---
+// Importamos toda la info del sitio para llenar el footer dinámicamente
+import { NAV_LINKS, SOCIALS, SITE_INFO } from "../consts";
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="bg-comea-main dark:bg-black text-white pt-16 pb-8 mt-auto">
+  <div
+    class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"
+  >
+    <div class="col-span-1 md:col-span-1">
+      <div class="flex items-center mb-4">
+        <div
+          class="w-8 h-8 bg-white text-comea-main flex items-center justify-center rounded-full mr-2"
+        >
+          <Icon name="fa6-solid:plane-up" class="text-sm" />
+        </div>
+        <span class="font-bold text-xl">{SITE_INFO.shortName}</span>
+      </div>
+      <p class="text-blue-200 text-sm leading-relaxed">
+        {SITE_INFO.description}
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-bold mb-4 text-comea-accent">Navegación</h4>
+      <ul class="space-y-2 text-sm text-blue-100">
+        <!-- Mostramos solo los primeros 4 enlaces del menú principal -->
+        {
+          NAV_LINKS.slice(0, 4).map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-white transition">
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-comea-accent">Legal</h4>
+      <ul class="space-y-2 text-sm text-blue-100">
+        <li>
+          <a href="#" class="hover:text-white transition">Aviso de Privacidad</a
+          >
+        </li>
+        <li><a href="#" class="hover:text-white transition">Estatutos</a></li>
+        <li>
+          <a href="#" class="hover:text-white transition">Transparencia</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-4 text-comea-accent">Síguenos</h4>
+      <div class="flex space-x-4">
+        <!-- Generamos los íconos de redes sociales -->
+        {
+          SOCIALS.map((social) => (
+            <a
+              href={social.href}
+              class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+              aria-label={social.name}
+            >
+              <Icon name={social.icon} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <div
+    class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-8 text-center text-xs text-blue-300"
+  >
+    &copy; {new Date().getFullYear()}
+    {SITE_INFO.title}. Todos los derechos reservados.
+  </div>
+</footer>

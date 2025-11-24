@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="es" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="description" content="Sitio Oficial del Consejo Mexicano de Educación Aeroespacial"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>COMEA | Consejo Mexicano de Educación Aeroespacial</title><!-- Client Router para navegación SPA nativa (Nuevo en Astro 5) --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.QW52Ox2j.js"></script><!-- OPTIMIZACIÓN: PRECARGA DE FUENTES Y LINKS --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Carga de fuentes (usando 'display=swap' para no bloquear la página) --><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/index.BD_3J0h_.css"></head> <body class="bg-slate-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 font-sans transition-colors duration-300 antialiased">  <header> <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar" data-astro-transition-persist="astro-qgckj2sd-1"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="flex justify-between items-center h-20"> <!-- Logo --> <a href="#home" id="logo-link" class="flex-shrink-0 flex items-center group gap-3"> <div class="w-10 h-10 bg-comea-main text-white flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300"> <svg width="1em" height="1em" data-icon="fa6-solid:plane-up">   <symbol id="ai:fa6-solid:plane-up" viewBox="0 0 512 512"><path fill="currentColor" d="M192 93.7C192 59.5 221 0 256 0c36 0 64 59.5 64 93.7V160l177.8 118.5c8.9 5.9 14.2 15.9 14.2 26.6v56.7c0 10.9-10.7 18.6-21.1 15.2L320 320v80l57.6 43.2c4 3 6.4 7.8 6.4 12.8v42c0 7.8-6.3 14-14 14c-1.3 0-2.6-.2-3.9-.5L256 480l-110.1 31.5c-1.3.4-2.6.5-3.9.5c-7.8 0-14-6.3-14-14v-42c0-5 2.4-9.8 6.4-12.8L192 400v-80L21.1 377C10.7 380.4 0 372.7 0 361.8v-56.7c0-10.7 5.3-20.7 14.2-26.6L192 160z"/></symbol><use href="#ai:fa6-solid:plane-up"></use>  </svg> </div> <div class="flex flex-col"> <span class="font-display font-bold text-xl leading-none text-comea-main dark:text-white tracking-tight">COMEA</span> <span class="text-[10px] font-semibold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Educación Aeroespacial</span> </div> </a> <!-- Menú de Escritorio --> <div class="hidden lg:flex space-x-6 items-center"> <!-- Generamos los enlaces dinámicamente usando .map() --> <a href="#home" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Inicio </a><a href="#nosotros" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Nosotros </a><a href="#miembros" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Miembros </a><a href="#vinculacion" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Vinculación </a><a href="#noticias" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Noticias </a><a href="#vacantes" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Vacantes </a><a href="#convocatoria" class="nav-link text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-comea-light dark:hover:text-comea-tech transition-colors"> Convocatoria 2025 </a> <a href="#contacto" class="nav-link px-5 py-2.5 bg-comea-main text-white text-sm font-semibold rounded-lg shadow-lg shadow-blue-900/20 hover:bg-comea-light transition-all hover:-translate-y-0.5">
+Contacto
+</a> <!-- Dark Mode Btn (Escritorio) --> <button id="theme-toggle" aria-label="Cambiar tema" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-comea-tech"> <svg width="0.75em" height="1em" class="dark:hidden text-slate-600" data-icon="fa6-solid:moon">   <symbol id="ai:fa6-solid:moon" viewBox="0 0 384 512"><path fill="currentColor" d="M223.5 32C100 32 0 132.3 0 256s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></symbol><use href="#ai:fa6-solid:moon"></use>  </svg> <svg width="1em" height="1em" class="hidden dark:block text-yellow-400" data-icon="fa6-solid:sun">   <symbol id="ai:fa6-solid:sun" viewBox="0 0 512 512"><path fill="currentColor" d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391l-19.9 107.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391L13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256L2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121l19.9-107.9c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1l90.3-62.3c4.5-3.1 10.2-3.7 15.2-1.6M160 256a96 96 0 1 1 192 0a96 96 0 1 1-192 0m224 0a128 128 0 1 0-256 0a128 128 0 1 0 256 0"/></symbol><use href="#ai:fa6-solid:sun"></use>  </svg> </button> </div> <!-- Mobile Buttons Area --> <div class="lg:hidden flex items-center gap-3"> <!-- Dark Mode Btn (Móvil) --> <button id="theme-toggle-mobile" aria-label="Cambiar tema móvil" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-comea-main focus:outline-none"> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="dark:hidden" data-icon="fa6-solid:moon">   <use href="#ai:fa6-solid:moon"></use>  </svg> <svg width="1em" height="1em" viewBox="0 0 512 512" class="hidden dark:block text-yellow-400" data-icon="fa6-solid:sun">   <use href="#ai:fa6-solid:sun"></use>  </svg> </button> <!-- Hamburguesa --> <button id="mobile-menu-btn" class="text-slate-600 dark:text-slate-300 hover:text-comea-main p-2 focus:outline-none"> <svg width="0.88em" height="1em" class="text-2xl" data-icon="fa6-solid:bars">   <symbol id="ai:fa6-solid:bars" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32m0 160c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32m448 160c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32"/></symbol><use href="#ai:fa6-solid:bars"></use>  </svg> </button> </div> </div> </div> <!-- Mobile Menu --> <div id="mobile-menu" class="hidden lg:hidden glass border-t border-slate-200 dark:border-slate-700 absolute w-full h-screen"> <div class="px-4 pt-2 pb-6 space-y-1"> <a href="#home" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Inicio </a><a href="#nosotros" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Nosotros </a><a href="#miembros" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Miembros </a><a href="#vinculacion" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Vinculación </a><a href="#noticias" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Noticias </a><a href="#vacantes" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Vacantes </a><a href="#convocatoria" class="mobile-nav-link block px-3 py-4 border-b border-slate-100 dark:border-slate-800 text-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"> Convocatoria 2025 </a> <a href="#contacto" class="mobile-nav-link block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-comea-main text-white">
+Contacto
+</a> </div> </div> </nav> <script type="module">function a(){const d=document.querySelectorAll("#theme-toggle, #theme-toggle-mobile"),c=document.getElementById("mobile-menu-btn"),n=document.getElementById("mobile-menu"),o=document.getElementById("navbar"),i=e=>{const t=e.currentTarget.getAttribute("href");if(t&&t.startsWith("#")){e.preventDefault();const l=document.getElementById(t.substring(1));l&&l.scrollIntoView({behavior:"smooth"}),n&&!n.classList.contains("hidden")&&n.classList.add("hidden")}};document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",i)}),d.forEach(e=>{e.addEventListener("click",()=>{const t=document.documentElement.classList.toggle("dark");localStorage.setItem("theme",t?"dark":"light")})}),c?.addEventListener("click",()=>{n?.classList.toggle("hidden")});const s=()=>{window.scrollY>10?o?.classList.add("shadow-lg","shadow-slate-900/5"):o?.classList.remove("shadow-lg","shadow-slate-900/5")};window.removeEventListener("scroll",s),window.addEventListener("scroll",s)}a();document.addEventListener("astro:after-swap",a);</script> </header> <main class="pt-0 min-h-screen flex flex-col justify-between"> <!-- 1. HERO (ID = home) --> <section id="home" class="relative h-[100svh] flex items-center justify-center text-center px-4 overflow-hidden"> <!-- Imagen de Fondo Optimizada --> <img src="/_astro/hero-bg.BV_y1kHW_2qRWQM.webp" srcset="/_astro/hero-bg.BV_y1kHW_2ikkDm.webp 640w, /_astro/hero-bg.BV_y1kHW_1b2jGg.webp 768w, /_astro/hero-bg.BV_y1kHW_Z1l7JGg.webp 1024w, /_astro/hero-bg.BV_y1kHW_1v9hK9.webp 1280w, /_astro/hero-bg.BV_y1kHW_ykbMb.webp 1536w, /_astro/hero-bg.BV_y1kHW_2qRWQM.webp 1920w" alt="Ingeniería Aeroespacial" loading="eager" sizes="100vw" decoding="async" fetchpriority="auto" width="1920" height="1280" class="absolute inset-0 w-full h-full object-cover -z-20"> <!-- Capa de Gradiente (Replicando el diseño original) --> <div class="absolute inset-0 bg-gradient-to-br from-comea-main/90 to-slate-900/95 mix-blend-multiply -z-10"></div> <!-- Gradiente inferior para suavizar la transición --> <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent z-0"></div> <div class="relative z-10 max-w-5xl mx-auto mt-16 animate-fade-in"> <div class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-comea-accent text-xs font-bold tracking-widest mb-8 uppercase shadow-2xl"> <span class="w-2 h-2 rounded-full bg-comea-accent animate-pulse"></span>
+Liderazgo Aeroespacial
+</div> <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 leading-[1.1] tracking-tight">
+Impulsando el futuro <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-comea-tech to-blue-500">aeroespacial de México</span> </h1> <p class="text-lg md:text-2xl text-slate-100 mb-12 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-md">
+Unificamos academia, industria y gobierno para detonar el potencial
+      tecnológico del país.
+</p> <div class="flex flex-col sm:flex-row gap-5 justify-center items-center"> <a href="#nosotros" class="group relative px-8 py-4 bg-comea-main text-white font-semibold rounded-xl overflow-hidden transition-transform hover:-translate-y-1 shadow-xl shadow-blue-900/20 border border-white/10"> <span class="relative">¿Qué es COMEA?</span> </a> <a href="#convocatoria" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold rounded-xl transition-all hover:border-white/40">
+Convocatoria 2025
+</a> </div> </div> <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/30 z-10"> <svg width="1em" height="1em" class="text-2xl" data-icon="fa6-solid:chevron-down">   <symbol id="ai:fa6-solid:chevron-down" viewBox="0 0 512 512"><path fill="currentColor" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7L86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></symbol><use href="#ai:fa6-solid:chevron-down"></use>  </svg> </div> </section> <!-- 2. BARRA DE ESTADÍSTICAS --> <section id="stats" class="bg-white dark:bg-dark-card border-b border-slate-100 dark:border-slate-800 py-12"> <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"> <!-- Iteramos sobre el array STATS para generar cada contador --> <div> <div class="text-4xl font-bold text-comea-main dark:text-comea-tech mb-1"> 50+ </div> <div class="text-sm text-slate-500 uppercase tracking-wide font-semibold"> Miembros Académicos </div> </div><div> <div class="text-4xl font-bold text-comea-main dark:text-comea-tech mb-1"> 20 </div> <div class="text-sm text-slate-500 uppercase tracking-wide font-semibold"> Convenios Internacionales </div> </div><div> <div class="text-4xl font-bold text-comea-main dark:text-comea-tech mb-1"> 15 </div> <div class="text-sm text-slate-500 uppercase tracking-wide font-semibold"> Estados Representados </div> </div><div> <div class="text-4xl font-bold text-comea-main dark:text-comea-tech mb-1"> 100% </div> <div class="text-sm text-slate-500 uppercase tracking-wide font-semibold"> Compromiso </div> </div> </div> </section> <!-- 3. SECCIÓN NOSOTROS (ID = nosotros) --> <section id="nosotros" class="py-20 max-w-7xl mx-auto px-6"> <div class="text-center mb-20"> <span class="text-comea-tech font-bold tracking-wider uppercase text-sm">Nuestra Identidad</span> <h1 class="text-4xl md:text-5xl font-display font-bold text-comea-main dark:text-white mt-2 mb-8">
+¿Qué es el COMEA?
+</h1> <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card p-8 rounded-2xl shadow-xl border-l-4 border-comea-accent"> <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+"Somos una asociación civil de carácter estrictamente académico y sin
+        fines de lucro, cuya visión es ser un referente para el desarrollo
+        ordenado de las competencias y capacidades profesionales del capital
+        humano que requiere la industria aeroespacial mexicana."
+</p> </div> </div> <div class="grid lg:grid-cols-2 gap-16 items-center mb-20"> <div class="relative"> <div class="absolute -top-4 -left-4 w-20 h-20 bg-comea-accent/20 rounded-full blur-xl"></div> <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="relative rounded-2xl shadow-2xl z-10 w-full object-cover h-96" alt="Consejo Directivo"> </div> <div> <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+Nuestra Historia
+</h3> <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+El Consejo Mexicano de Educación Aeroespacial (COMEA) se fundó en 2007
+        con 10 instituciones miembro. A través de los años, hemos crecido
+        integrando a las universidades más prestigiosas para estandarizar y
+        elevar la calidad educativa del sector.
+</p> <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+Recientemente, celebramos la toma de protesta del nuevo Consejo
+        Administrativo para el periodo 2024-2027, reafirmando nuestro compromiso
+        de ser la plataforma que facilita la colaboración efectiva entre la
+        academia y la industria.
+</p> <button onclick="window.openHistoryDetail()" class="mt-4 px-6 py-3 bg-comea-tech text-white rounded-lg font-bold hover:bg-opacity-80 transition flex items-center w-full md:w-auto justify-center">
+Conocer la Historia Completa <svg width="0.88em" height="1em" class="ml-2" data-icon="fa6-solid:arrow-right">   <symbol id="ai:fa6-solid:arrow-right" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></symbol><use href="#ai:fa6-solid:arrow-right"></use>  </svg> </button> </div> </div> <div class="mb-20"> <div class="text-center mb-12"> <h3 class="text-3xl font-bold text-comea-main dark:text-white">
+Consejo Administrativo
+</h3> <p class="text-slate-500 mt-2 font-medium">Periodo 2024 - 2027</p> </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-main bg-white dark:bg-dark-card"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Federico+Perez&background=0F2E4A&color=fff&size=128" alt="Presidente" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Ing. Federico Pérez Fuentes
+</h4> <span class="inline-block px-2 py-1 bg-comea-main text-white text-xs font-bold rounded-full">Presidente</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-light bg-white dark:bg-dark-card"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Sergio+Mancinas&background=1E4B75&color=fff&size=128" alt="Secretario" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Ing. Sergio Mancinas
+</h4> <span class="inline-block px-2 py-1 bg-comea-light text-white text-xs font-bold rounded-full">Secretario</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-light bg-white dark:bg-dark-card"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Diego+Padilla&background=1E4B75&color=fff&size=128" alt="Tesorero" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Dr. Diego Alfredo Padilla
+</h4> <span class="inline-block px-2 py-1 bg-comea-light text-white text-xs font-bold rounded-full">Tesorero</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Luis+Rivera&background=94a3b8&color=fff&size=128" alt="Consejero" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Mtro. Luis Alfonso Rivera
+</h4> <span class="text-slate-500 text-xs font-medium uppercase">Consejero</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Jose+Alarcon&background=94a3b8&color=fff&size=128" alt="Consejero" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Dr. José de Jesús Alarcón
+</h4> <span class="text-slate-500 text-xs font-medium uppercase">Consejero</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Arnulfo+Trevino&background=94a3b8&color=fff&size=128" alt="Consejero" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Dr. Arnulfo Treviño Cubero
+</h4> <span class="text-slate-500 text-xs font-medium uppercase">Consejero</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Guillermo+Mejia&background=94a3b8&color=fff&size=128" alt="Consejero" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+Lic. Guillermo Mejía Ángeles
+</h4> <span class="text-slate-500 text-xs font-medium uppercase">Consejero</span> </div> <div class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-accent bg-white dark:bg-dark-card"> <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"> <img src="https://ui-avatars.com/api/?name=Jorge+Gutierrez&background=F2C744&color=fff&size=128" alt="Honorífico" class="w-full h-full"> </div> <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+M. en A. Jorge Gutiérrez
+</h4> <span class="inline-block px-2 py-1 bg-comea-accent text-comea-main text-xs font-bold rounded-full">Miembro Honorífico</span> </div> </div> </div> </section> <!-- 4. SECCIÓN MIEMBROS (ID = miembros) --> <section id="miembros" class="py-20 max-w-7xl mx-auto px-6"> <div class="flex flex-col md:flex-row justify-between items-center mb-12"> <div> <h1 class="text-3xl font-bold text-comea-main dark:text-white">
+Instituciones Miembro
+</h1> <p class="text-slate-500 dark:text-slate-400">
+La red académica aeroespacial aeroespacial más grande de México.
+</p> </div> <!-- Filtros (Funcionalidad visual) --> <div class="mt-6 md:mt-0 flex gap-2 overflow-x-auto pb-2 no-scrollbar"> <button class="px-4 py-2 rounded-full bg-comea-main text-white text-sm font-medium transition-colors hover:bg-comea-light shadow-md whitespace-nowrap">Todos</button> <button class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">Públicas</button> <button class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">Privadas</button> </div> </div> <!-- Grid de Miembros Dinámico --> <div id="members-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"> <div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="0"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" class="text-4xl" data-icon="fa6-solid:building-columns">   <symbol id="ai:fa6-solid:building-columns" viewBox="0 0 512 512"><path fill="currentColor" d="m243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24h400c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0M128 224H64v196.3c-.6.3-1.2.7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512h448c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224h-64v192h-40V224h-64v192h-48V224h-64v192h-40zM256 64a32 32 0 1 1 0 64a32 32 0 1 1 0-64"/></symbol><use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UNAM </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="1"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> IPN </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="2"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UNAQ </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="3"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UANL </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="4"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> ITESM </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="5"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UACH </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="6"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UPB </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="7"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> CETYS Universidad </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="8"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> INADET </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    flex 
+                " data-index="9"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Tecnológica de Tijuana </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="10"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> CAB </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="11"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Politécnica de Chihuahua </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="12"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Conalep Querétaro </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="13"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UT Guaymas </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="14"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UT Hermosillo </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="15"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Politécnica Metropolitana de Hidalgo </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="16"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UTJ </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="17"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UPAEP </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="18"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> CENALTEC </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="19"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Politécnica de Apodaca </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="20"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Tecnológico de Monterrey </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="21"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> CDA </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="22"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UAZ </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="23"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UPIIG </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="24"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Marista de Guadalajara </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="25"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> ITSON </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="26"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> ESIME Ticomán </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="27"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Prepa Sanmiguelense </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="28"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Tecnológico Nacional de México </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="29"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Cuauhtémoc </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="30"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> UACJ </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="31"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> CECYT 17 </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="32"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Universidad Politécnica de Aguascalientes </span> </div><div class="
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
+                    hidden sm:flex 
+                " data-index="33"> <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-4xl" data-icon="fa6-solid:building-columns">   <use href="#ai:fa6-solid:building-columns"></use>  </svg> </div> <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight"> Cluster Aeroespacial </span> </div> </div> <!-- Botón "Mostrar Más" visible solo si hay más elementos que el límite y solo en móvil/tablet --> <div id="show-more-container" class="mt-10 text-center sm:hidden"> <button id="show-more-btn" onclick="toggleMembersVisibility()" class="inline-flex items-center px-6 py-3 rounded-lg bg-comea-main text-white font-bold text-sm hover:bg-comea-light transition-colors shadow-lg shadow-blue-900/30"> <span id="show-more-text">
+Mostrar todas las 34 instituciones
+</span> <span id="show-more-icon" class="ml-3 transition-transform duration-300"> <svg width="1em" height="1em" viewBox="0 0 512 512" data-icon="fa6-solid:chevron-down">   <use href="#ai:fa6-solid:chevron-down"></use>  </svg> </span> </button> </div> <!-- Call to Action --> <div class="mt-16 text-center hidden sm:block"> <p class="text-slate-500 mb-4">¿Tu institución aún no es parte de COMEA?</p> <a href="#contacto" class="inline-block px-6 py-3 rounded-lg border border-comea-main text-comea-main dark:border-comea-tech dark:text-comea-tech font-bold text-sm hover:bg-comea-main hover:text-white transition-colors">
+Solicitar Afiliación
+</a> </div> </section> <script>(function(){const totalMembers = 34;
+const MOBILE_LIMIT = 10;
+
+  // Ahora las variables totalMembers y MOBILE_LIMIT están disponibles aquí directamente
+
+  // Lógica para alternar la visibilidad de las tarjetas en móvil
+  window.toggleMembersVisibility = function () {
+    const grid = document.getElementById("members-grid");
+    const button = document.getElementById("show-more-btn");
+    const textSpan = document.getElementById("show-more-text");
+    const iconSpan = document.getElementById("show-more-icon");
+    const section = document.getElementById("miembros"); // Obtenemos la sección completa
+
+    if (!grid || !button || !section) return; // Evita errores si no encuentra los elementos
+
+    // Obtener solo las tarjetas que deben ser ocultadas/mostradas
+    const hiddenCards = Array.from(grid.children).filter((card) => {
+      const index = parseInt(card.getAttribute("data-index"));
+      // Filtramos las tarjetas que están más allá del límite
+      return index >= MOBILE_LIMIT;
+    });
+
+    const isExpanded = button.getAttribute("data-expanded") === "true";
+
+    if (isExpanded) {
+      // OCULTAR
+      if (window.innerWidth < 640) {
+        hiddenCards.forEach((card) => (card.style.display = "none"));
+      }
+      if (textSpan)
+        textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
+      if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
+      button.setAttribute("data-expanded", "false");
+
+      // SOLUCIÓN: Hacemos scroll suave al inicio de la sección después de ocultar
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      // MOSTRAR
+      hiddenCards.forEach((card) => (card.style.display = "flex"));
+      if (textSpan) textSpan.innerText = `Ocultar instituciones`;
+      if (iconSpan) iconSpan.style.transform = "rotate(180deg)";
+      button.setAttribute("data-expanded", "true");
+    }
+  };
+
+  // Función para asegurar el estado inicial al cargar o al cambiar de tamaño
+  function initializeMemberView() {
+    const grid = document.getElementById("members-grid");
+    const button = document.getElementById("show-more-btn");
+    const showMoreContainer = document.getElementById("show-more-container");
+    const textSpan = document.getElementById("show-more-text");
+    const iconSpan = document.getElementById("show-more-icon");
+
+    if (!grid || !showMoreContainer || !button) return;
+
+    const isMobile = window.innerWidth < 640;
+
+    // Ocultar las tarjetas si estamos en móvil
+    Array.from(grid.children).forEach((card) => {
+      const index = parseInt(card.getAttribute("data-index"));
+      if (index >= MOBILE_LIMIT) {
+        // En móvil, forzamos a ocultar las extras. En desktop, Tailwind las muestra vía 'sm:flex'.
+        card.style.display = isMobile ? "none" : "flex";
+      }
+    });
+
+    if (isMobile) {
+      button.setAttribute("data-expanded", "false");
+      if (textSpan)
+        textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
+      if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
+      showMoreContainer.classList.remove("hidden");
+    } else {
+      // En desktop, ocultamos el botón
+      showMoreContainer.classList.add("hidden");
+    }
+  }
+
+  // Ejecutar en carga inicial y al redimensionar
+  document.addEventListener("DOMContentLoaded", initializeMemberView);
+  window.addEventListener("resize", initializeMemberView);
+})();</script> <!-- 5. SECCIÓN VINCULACIÓN (ID = vinculacion) --> /** * Componente: VinculacionSection * * Muestra los ejes estratégicos y
+convenios principales de COMEA. * * INTEGRACIÓN CON WORDPRESS: * - Este
+contenido es ideal para un Custom Post Type (CPT) llamado "Estrategias" o
+"Programas". * - Campos sugeridos: * - Título (ej: "Convenio FEMIA / COMEA") * -
+Descripción (el texto explicativo) * - Orden/Número (01, 02, 03...) * - Color de
+borde/acento (opcional, para mantener el diseño visual distintivo) */
+<section id="vinculacion" class="py-20 max-w-7xl mx-auto px-6"> <div class="text-center mb-16"> <h1 class="text-3xl md:text-4xl font-bold text-comea-main dark:text-white mb-4">
+Vinculación Estratégica
+</h1> <p class="max-w-2xl mx-auto text-slate-600 dark:text-slate-400">
+Nuestros ejes de acción principales para fortalecer el sector.
+</p> </div> <div class="grid md:grid-cols-3 gap-8"> <!-- 01 FEMIA/COMEA --> <div class="bg-white dark:bg-dark-card p-8 rounded-2xl border-t-4 border-comea-main shadow-xl hover:shadow-2xl transition-all duration-300 group"> <div class="text-4xl font-bold text-slate-200 dark:text-slate-700 mb-4">
+01
+</div> <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors">
+Convenio FEMIA / COMEA
+</h3> <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+Firmado en FAMEX 2021. Establece las bases de cooperación para optimizar
+        recursos humanos, materiales y financieros en acciones de beneficio
+        mutuo para la industria y la academia.
+</p> </div> <!-- 02 Líderes --> <div class="bg-white dark:bg-dark-card p-8 rounded-2xl border-t-4 border-comea-accent shadow-xl hover:shadow-2xl transition-all duration-300 group"> <div class="text-4xl font-bold text-slate-200 dark:text-slate-700 mb-4">
+02
+</div> <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-comea-accent transition-colors">
+Líderes Aeroespaciales
+</h3> <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+Programa en colaboración con la Subcomisión de Formación Vocacional de
+        FEMIA. Campañas de difusión en instituciones educativas para orientar a
+        las futuras generaciones hacia el sector.
+</p> </div> <!-- 03 Agenda --> <div class="bg-white dark:bg-dark-card p-8 rounded-2xl border-t-4 border-comea-tech shadow-xl hover:shadow-2xl transition-all duration-300 group"> <div class="text-4xl font-bold text-slate-200 dark:text-slate-700 mb-4">
+03
+</div> <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-comea-tech transition-colors">
+Agenda Estratégica 2030
+</h3> <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+Propuesta elaborada por más de 70 docentes e investigadores para
+        fortalecer los componentes educativos, de investigación y desarrollo
+        tecnológico en los sectores aeronáutico y espacial.
+</p> </div> </div> </section> <!-- 6. SECCIÓN NOTICIAS (ID = noticias) --> <section id="noticias" class="py-20"> <div class="max-w-4xl mx-auto px-6"> <h1 class="text-4xl font-bold text-comea-main dark:text-white mb-10 border-b border-slate-200 dark:border-slate-700 pb-4">Sala de Prensa</h1> <div class="space-y-10"> <div class="flex flex-col md:flex-row gap-6 group bg-white dark:bg-dark-card rounded-xl p-4 shadow-sm hover:shadow-lg transition-shadow border border-slate-100 dark:border-slate-800"> <!-- Imagen / Icono (Usamos la primera imagen como miniatura) --> <div class="w-full md:w-1/3 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"> <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Imagen de Participación COMEA en FAMEX 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> </div> <!-- Texto y Botón --> <div class="w-full md:w-2/3 flex flex-col justify-center py-2"> <div class="flex items-center gap-3 mb-2"> <span class="px-3 py-1 text-xs rounded-full font-bold bg-comea-main text-white"> Evento </span> <span class="text-xs text-slate-500 dark:text-slate-400">Abril 2025</span> </div> <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-comea-tech transition-colors"> Participación COMEA en FAMEX 2025 </h2> <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2"> COMEA tuvo una destacada participación en la Feria Aeroespacial México, fortaleciendo nuestra presencia y generando vínculos estratégicos. </p> <!-- BOTÓN LEER MÁS --> <button type="button" class="text-comea-main dark:text-comea-tech font-bold text-sm hover:underline flex items-center cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-comea-tech rounded" onclick="openNewsById('famex-2025')">
+Leer más <svg width="0.63em" height="1em" class="ml-2" data-icon="fa6-solid:angle-right">   <symbol id="ai:fa6-solid:angle-right" viewBox="0 0 320 512"><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256L73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></symbol><use href="#ai:fa6-solid:angle-right"></use>  </svg> </button> </div> </div><div class="flex flex-col md:flex-row gap-6 group bg-white dark:bg-dark-card rounded-xl p-4 shadow-sm hover:shadow-lg transition-shadow border border-slate-100 dark:border-slate-800"> <!-- Imagen / Icono (Usamos la primera imagen como miniatura) --> <div class="w-full md:w-1/3 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"> <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Imagen de Análisis: Reforma a la Jornada Laboral en México" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> </div> <!-- Texto y Botón --> <div class="w-full md:w-2/3 flex flex-col justify-center py-2"> <div class="flex items-center gap-3 mb-2"> <span class="px-3 py-1 text-xs rounded-full font-bold bg-slate-200 text-slate-700"> Legislación </span> <span class="text-xs text-slate-500 dark:text-slate-400">Octubre 2025</span> </div> <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-comea-tech transition-colors"> Análisis: Reforma a la Jornada Laboral en México </h2> <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2"> Análisis del impacto de las nuevas reformas laborales en el sector industrial y académico aeroespacial. </p> <!-- BOTÓN LEER MÁS --> <button type="button" class="text-comea-main dark:text-comea-tech font-bold text-sm hover:underline flex items-center cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-comea-tech rounded" onclick="openNewsById('reforma-laboral')">
+Leer más <svg width="0.63em" height="1em" viewBox="0 0 320 512" class="ml-2" data-icon="fa6-solid:angle-right">   <use href="#ai:fa6-solid:angle-right"></use>  </svg> </button> </div> </div> </div> <!-- Paginación (Visual) --> <div class="flex justify-center mt-12 space-x-2"> <button class="px-4 py-2 text-white bg-comea-main rounded-lg text-sm font-semibold hover:bg-comea-light transition-colors">1</button> <button class="px-4 py-2 text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">2</button> </div> </div> </section> <!-- SCRIPT DE LA SECCIÓN: Lógica de conexión CON TOGGLE --> <script>(function(){const newsArticles = [{"id":"famex-2025","date":"Abril 2025","category":"Evento","title":"Participación COMEA en FAMEX 2025","summary":"COMEA tuvo una destacada participación en la Feria Aeroespacial México, fortaleciendo nuestra presencia y generando vínculos estratégicos.","images":["https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1559297434-fae8a1916a79?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"],"content":"\n            <p class=\"mb-4 text-lg leading-relaxed\">El Consejo Mexicano de Educación Aeroespacial (COMEA) se hizo presente con éxito en la Feria Aeroespacial México (FAMEX), consolidando su papel como puente entre la academia y la industria.</p>\n            <p class=\"mb-4 leading-relaxed\">Durante el evento, nuestro Director, Ing. Federico Fuentes Pérez, encabezó la delegación con el objetivo de establecer nuevas alianzas estratégicas.</p>\n            <h3 class=\"font-bold text-xl text-comea-main dark:text-white mt-6 mb-3\">Logros Destacados</h3>\n            <ul class=\"list-disc pl-5 mb-4 space-y-2\">\n                <li>Fortalecimiento de lazos con la industria de fabricación y mantenimiento.</li>\n                <li>Presentación del avance de la Agenda Estratégica 2030.</li>\n                <li>Reuniones clave con delegaciones internacionales.</li>\n            </ul>\n            <p class=\"mt-6 text-sm text-slate-500\">Agradecemos a los organizadores por la invitación y la cálida recepción.</p>\n        "},{"id":"reforma-laboral","date":"Octubre 2025","category":"Legislación","title":"Análisis: Reforma a la Jornada Laboral en México","summary":"Análisis del impacto de las nuevas reformas laborales en el sector industrial y académico aeroespacial.","images":["https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80","https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"],"content":"\n            <p class=\"mb-4 text-lg leading-relaxed\">La nueva legislación laboral en México impacta directamente los planes de estudio y la estructura de las prácticas profesionales en el sector aeroespacial.</p>\n            <p class=\"mb-4 leading-relaxed\">COMEA organizó un simposio para analizar las implicaciones para el talento humano y la competitividad del sector.</p>\n            <h3 class=\"font-bold text-xl text-comea-main dark:text-white mt-6 mb-3\">Puntos Clave Discutidos</h3>\n            <ul class=\"list-disc pl-5 mb-4 space-y-2\">\n                <li>Ajustes en el tiempo dedicado a la capacitación y formación dual.</li>\n                <li>Implicaciones en la certificación de técnicos y especialistas.</li>\n                <li>Necesidad de actualizar el currículo para alinearse a las nuevas horas laborales.</li>\n            </ul>\n        "}];
+
+    window.comeaNewsData = newsArticles;
+    window.currentOpenNewsId = null;
+
+    window.openNewsById = (id) => {
+        const sidebar = document.getElementById('news-sidebar');
+        const isSidebarOpen = sidebar && !sidebar.style.transform.includes('100%');
+
+        if (isSidebarOpen && window.currentOpenNewsId === id) {
+            if (typeof window.closeNewsDetail === 'function') {
+                window.closeNewsDetail();
+            }
+            window.currentOpenNewsId = null;
+        } 
+        else {
+            const article = window.comeaNewsData.find(a => a.id === id);
+            if (article && typeof window.openNewsDetail === 'function') {
+                window.openNewsDetail(article);
+                window.currentOpenNewsId = id;
+            } else {
+                console.error("Error: No se encontró la noticia o el Sidebar no está listo.");
+            }
+        }
+    };
+})();</script> <!-- 7. SECCIÓN VACANTES (ID = vacantes) --> <section id="vacantes" class="py-20"> <div class="max-w-6xl mx-auto px-6"> <!-- 1. BANNER PRINCIPAL --> <div class="bg-comea-main rounded-2xl p-8 text-center text-white mb-10 relative overflow-hidden shadow-2xl shadow-blue-900/40"> <div class="absolute top-0 left-0 w-full h-full bg-slate-900 opacity-50"></div> <div class="relative z-10"> <h1 class="text-3xl font-bold mb-2">Bolsa de Talento Aeroespacial</h1> <p class="text-blue-200">
+Conectando a los mejores egresados con la industria líder.
+</p> </div> </div> <!-- 2. GRID DE EVENTOS (Lo que te gustó de la versión nueva) --> <div class="grid md:grid-cols-2 gap-6 mb-12"> <!-- Evento 1 --> <div class="bg-white dark:bg-dark-card p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"> <div> <span class="inline-block px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded mb-3">Evento Virtual</span> <h3 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-2">
+Feria Virtual de Reclutamiento
+</h3> <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+Organizan FEMIA y COMEA. Encuentra el mejor talento nacional.
+</p> </div> <button class="w-full py-2 border border-comea-main text-comea-main dark:border-comea-tech dark:text-comea-tech rounded-lg font-bold text-sm hover:bg-comea-main hover:text-white transition-colors">Ver detalles</button> </div> <!-- Evento 2 --> <div class="bg-white dark:bg-dark-card p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"> <div> <span class="inline-block px-2 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded mb-3">Internacional</span> <h3 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-2">
+Journées Québec MEXIQUE 2025
+</h3> <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+Encuentra empleo en el sector aeroespacial en Montréal.
+</p> </div> <button class="w-full py-2 border border-comea-main text-comea-main dark:border-comea-tech dark:text-comea-tech rounded-lg font-bold text-sm hover:bg-comea-main hover:text-white transition-colors">Aplicar ahora</button> </div> </div> <!-- 3. LISTA DE VACANTES (La versión clásica que extrañabas) --> <div class="bg-white dark:bg-dark-card rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-xl"> <!-- Header de Filtros --> <div class="p-5 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 flex flex-col md:flex-row gap-4 justify-between items-center"> <h3 class="font-bold text-xl text-slate-800 dark:text-white flex items-center gap-2"> <svg width="1em" height="1em" class="text-comea-main dark:text-comea-tech" data-icon="fa6-solid:briefcase">   <symbol id="ai:fa6-solid:briefcase" viewBox="0 0 512 512"><path fill="currentColor" d="M184 48h144c4.4 0 8 3.6 8 8v40H176V56c0-4.4 3.6-8 8-8m-56 8v40H64c-35.3 0-64 28.7-64 64v96h512v-96c0-35.3-28.7-64-64-64h-64V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56m384 232H320v32c0 17.7-14.3 32-32 32h-64c-17.7 0-32-14.3-32-32v-32H0v128c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64z"/></symbol><use href="#ai:fa6-solid:briefcase"></use>  </svg>
+Últimas Vacantes
+</h3> <div class="flex gap-2 w-full md:w-auto overflow-x-auto no-scrollbar"> <div class="relative flex-1 min-w-[200px]"> <svg width="1em" height="1em" class="absolute left-3 top-3 text-slate-400 text-xs" data-icon="fa6-solid:magnifying-glass">   <symbol id="ai:fa6-solid:magnifying-glass" viewBox="0 0 512 512"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7l126.6 126.7c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208M208 352a144 144 0 1 0 0-288a144 144 0 1 0 0 288"/></symbol><use href="#ai:fa6-solid:magnifying-glass"></use>  </svg> <input type="text" placeholder="Buscar puesto..." class="w-full pl-9 pr-4 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-comea-tech"> </div> <select class="p-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white cursor-pointer"> <option>Ubicación</option> <option>Querétaro</option> <option>Chihuahua</option> <option>Baja California</option> </select> </div> </div> <!-- Listado --> <div class="divide-y divide-slate-100 dark:divide-slate-700"> <div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer"> <div class="flex gap-4 items-center"> <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner flex-shrink-0"> GE </div> <div> <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors"> Ingeniero de Diseño Mecánico </h3> <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1"> <span class="font-semibold"> <svg width="0.75em" height="1em" class="mr-1 inline" data-icon="fa6-solid:building">   <symbol id="ai:fa6-solid:building" viewBox="0 0 384 512"><path fill="currentColor" d="M48 0C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h96v-80c0-26.5 21.5-48 48-48s48 21.5 48 48v80h96c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm16 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16"/></symbol><use href="#ai:fa6-solid:building"></use>  </svg>  GE Aviation </span> <span> <svg width="0.75em" height="1em" class="mr-1 inline" data-icon="fa6-solid:location-dot">   <symbol id="ai:fa6-solid:location-dot" viewBox="0 0 384 512"><path fill="currentColor" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0M192 128a64 64 0 1 1 0 128a64 64 0 1 1 0-128"/></symbol><use href="#ai:fa6-solid:location-dot"></use>  </svg>  Querétaro, Qro. </span> </div> </div> </div> <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0"> <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wide"> Tiempo Completo </span> <svg width="0.63em" height="1em" class="text-slate-300 group-hover:text-comea-main transition-colors" data-icon="fa6-solid:chevron-right">   <symbol id="ai:fa6-solid:chevron-right" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256L73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></symbol><use href="#ai:fa6-solid:chevron-right"></use>  </svg> </div> </div><div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer"> <div class="flex gap-4 items-center"> <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner flex-shrink-0"> SF </div> <div> <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors"> Practicante de Calidad </h3> <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1"> <span class="font-semibold"> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:building">   <use href="#ai:fa6-solid:building"></use>  </svg>  Safran </span> <span> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:location-dot">   <use href="#ai:fa6-solid:location-dot"></use>  </svg>  Chihuahua, Chih. </span> </div> </div> </div> <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0"> <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-[10px] font-bold uppercase tracking-wide"> Prácticas </span> <svg width="0.63em" height="1em" viewBox="0 0 320 512" class="text-slate-300 group-hover:text-comea-main transition-colors" data-icon="fa6-solid:chevron-right">   <use href="#ai:fa6-solid:chevron-right"></use>  </svg> </div> </div><div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer"> <div class="flex gap-4 items-center"> <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner flex-shrink-0"> HW </div> <div> <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors"> Supervisor de Producción </h3> <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1"> <span class="font-semibold"> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:building">   <use href="#ai:fa6-solid:building"></use>  </svg>  Honeywell </span> <span> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:location-dot">   <use href="#ai:fa6-solid:location-dot"></use>  </svg>  Mexicali, B.C. </span> </div> </div> </div> <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0"> <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wide"> Tiempo Completo </span> <svg width="0.63em" height="1em" viewBox="0 0 320 512" class="text-slate-300 group-hover:text-comea-main transition-colors" data-icon="fa6-solid:chevron-right">   <use href="#ai:fa6-solid:chevron-right"></use>  </svg> </div> </div><div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer"> <div class="flex gap-4 items-center"> <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner flex-shrink-0"> AB </div> <div> <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors"> Especialista en Aviónica </h3> <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1"> <span class="font-semibold"> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:building">   <use href="#ai:fa6-solid:building"></use>  </svg>  Airbus </span> <span> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:location-dot">   <use href="#ai:fa6-solid:location-dot"></use>  </svg>  Querétaro, Qro. </span> </div> </div> </div> <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0"> <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wide"> Tiempo Completo </span> <svg width="0.63em" height="1em" viewBox="0 0 320 512" class="text-slate-300 group-hover:text-comea-main transition-colors" data-icon="fa6-solid:chevron-right">   <use href="#ai:fa6-solid:chevron-right"></use>  </svg> </div> </div><div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer"> <div class="flex gap-4 items-center"> <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner flex-shrink-0"> GL </div> <div> <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors"> Técnico de Materiales Compuestos </h3> <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1"> <span class="font-semibold"> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:building">   <use href="#ai:fa6-solid:building"></use>  </svg>  Gulfstream </span> <span> <svg width="0.75em" height="1em" viewBox="0 0 384 512" class="mr-1 inline" data-icon="fa6-solid:location-dot">   <use href="#ai:fa6-solid:location-dot"></use>  </svg>  Mexicali, B.C. </span> </div> </div> </div> <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0"> <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold uppercase tracking-wide"> Tiempo Completo </span> <svg width="0.63em" height="1em" viewBox="0 0 320 512" class="text-slate-300 group-hover:text-comea-main transition-colors" data-icon="fa6-solid:chevron-right">   <use href="#ai:fa6-solid:chevron-right"></use>  </svg> </div> </div> </div> <!-- Footer de Lista --> <div class="p-4 bg-slate-50 dark:bg-slate-800/50 text-center border-t border-slate-200 dark:border-slate-700"> <button class="text-comea-main dark:text-comea-tech font-bold text-sm hover:underline">
+Ver listado completo (70+ vacantes)
+</button> </div> </div> </div> </section> <!-- 8. SECCIÓN CONVOCATORIA (ID = convocatoria) --> <section id="convocatoria" class="py-20 bg-slate-100 dark:bg-slate-900"> <div class="max-w-7xl mx-auto px-6 text-center"> <h1 class="text-4xl font-bold text-comea-main dark:text-white mb-4">Convocatoria 2025</h1> <p class="text-slate-600 dark:text-slate-300 mb-8">
+¡Abierta la recepción de proyectos y solicitudes de afiliación para el ciclo 2025!
+</p> <div class="p-8 bg-white dark:bg-dark-card rounded-xl shadow-lg border-l-4 border-comea-accent inline-block"> <p class="font-bold text-xl dark:text-white">Fecha límite: 30 de Noviembre.</p> <a href="#contacto" class="mt-4 inline-block px-6 py-3 bg-comea-tech text-white rounded-lg font-bold hover:bg-opacity-80 transition">Ver Bases</a> </div> </div> </section> <!-- 9. SECCIÓN CONTACTO (ID = contacto) --> <section id="contacto" class="py-20"> <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16"> <div> <h1 class="text-4xl font-display font-bold text-comea-main dark:text-white mb-6">
+Ponte en contacto
+</h1> <p class="text-slate-600 dark:text-slate-300 mb-8">
+¿Tienes dudas sobre afiliación, convenios o eventos? Escríbenos y
+        nuestro equipo te responderá a la brevedad.
+</p> <!-- Datos de Contacto --> <div class="space-y-6 mb-10"> <div class="flex items-start gap-4"> <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-slate-800 flex items-center justify-center text-comea-main dark:text-blue-400 flex-shrink-0 mt-1"> <svg width="0.75em" height="1em" viewBox="0 0 384 512" data-icon="fa6-solid:location-dot">   <use href="#ai:fa6-solid:location-dot"></use>  </svg> </div> <div> <h4 class="font-bold text-slate-800 dark:text-slate-100">
+Oficinas Centrales
+</h4> <p class="text-sm text-slate-500 dark:text-slate-400">
+Av. Universidad 123, Col. Del Valle, 03100 CDMX, México
+</p> </div> </div> <div class="flex items-start gap-4"> <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-slate-800 flex items-center justify-center text-comea-main dark:text-blue-400 flex-shrink-0 mt-1"> <svg width="1em" height="1em" data-icon="fa6-solid:envelope">   <symbol id="ai:fa6-solid:envelope" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l217.6 163.2c11.4 8.5 27 8.5 38.4 0l217.6-163.2c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48zM0 176v208c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V176L294.4 339.2a63.9 63.9 0 0 1-76.8 0z"/></symbol><use href="#ai:fa6-solid:envelope"></use>  </svg> </div> <div> <h4 class="font-bold text-slate-800 dark:text-slate-100">
+Correo Electrónico
+</h4> <p class="text-sm text-slate-500 dark:text-slate-400">
+contacto@comea.org.mx
+</p> </div> </div> <div class="flex items-start gap-4"> <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-slate-800 flex items-center justify-center text-comea-main dark:text-blue-400 flex-shrink-0 mt-1"> <svg width="1em" height="1em" data-icon="fa6-solid:phone">   <symbol id="ai:fa6-solid:phone" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64c0 247.4 200.6 448 448 448c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368c-70.4-33.3-127.4-90.3-160.7-160.7l49.3-40.3c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></symbol><use href="#ai:fa6-solid:phone"></use>  </svg> </div> <div> <h4 class="font-bold text-slate-800 dark:text-slate-100">
+Teléfono
+</h4> <p class="text-sm text-slate-500 dark:text-slate-400">
++52 55 1234 5678
+</p> </div> </div> </div> </div> <!-- Formulario --> <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700"> <form> <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4"> <div> <label for="nombre" class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre</label> <input type="text" id="nombre" class="w-full p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-comea-tech dark:text-white transition-colors" required> </div> <div> <label for="apellido" class="block text-xs font-bold text-slate-500 uppercase mb-1">Apellido</label> <input type="text" id="apellido" class="w-full p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-comea-tech dark:text-white transition-colors" required> </div> </div> <div class="mb-4"> <label for="email" class="block text-xs font-bold text-slate-500 uppercase mb-1">Email</label> <input type="email" id="email" class="w-full p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-comea-tech dark:text-white transition-colors" required> </div> <div class="mb-4"> <label for="asunto" class="block text-xs font-bold text-slate-500 uppercase mb-1">Asunto</label> <select id="asunto" class="w-full p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-comea-tech dark:text-white transition-colors"> <option>Información General</option> <option>Afiliación Institucional</option> <option>Prensa / Medios</option> <option>Bolsa de Trabajo</option> </select> </div> <div class="mb-6"> <label for="mensaje" class="block text-xs font-bold text-slate-500 uppercase mb-1">Mensaje</label> <textarea id="mensaje" rows="4" class="w-full p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-comea-tech dark:text-white transition-colors" required></textarea> </div> <button type="submit" class="w-full py-4 bg-comea-main text-white font-bold rounded-lg hover:bg-comea-light transition shadow-lg shadow-blue-900/30">Enviar Mensaje</button> </form> </div> </div> </section> </main> <footer class="bg-comea-main dark:bg-black text-white pt-16 pb-8 mt-auto"> <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12"> <div class="col-span-1 md:col-span-1"> <div class="flex items-center mb-4"> <div class="w-8 h-8 bg-white text-comea-main flex items-center justify-center rounded-full mr-2"> <svg width="1em" height="1em" viewBox="0 0 512 512" class="text-sm" data-icon="fa6-solid:plane-up">   <use href="#ai:fa6-solid:plane-up"></use>  </svg> </div> <span class="font-bold text-xl">COMEA</span> </div> <p class="text-blue-200 text-sm leading-relaxed"> Sitio Oficial del Consejo Mexicano de Educación Aeroespacial. Unificamos academia, industria y gobierno. </p> </div> <div> <h4 class="font-bold mb-4 text-comea-accent">Navegación</h4> <ul class="space-y-2 text-sm text-blue-100"> <!-- Mostramos solo los primeros 4 enlaces del menú principal --> <li> <a href="#home" class="hover:text-white transition"> Inicio </a> </li><li> <a href="#nosotros" class="hover:text-white transition"> Nosotros </a> </li><li> <a href="#miembros" class="hover:text-white transition"> Miembros </a> </li><li> <a href="#vinculacion" class="hover:text-white transition"> Vinculación </a> </li> </ul> </div> <div> <h4 class="font-bold mb-4 text-comea-accent">Legal</h4> <ul class="space-y-2 text-sm text-blue-100"> <li> <a href="#" class="hover:text-white transition">Aviso de Privacidad</a> </li> <li><a href="#" class="hover:text-white transition">Estatutos</a></li> <li> <a href="#" class="hover:text-white transition">Transparencia</a> </li> </ul> </div> <div> <h4 class="font-bold mb-4 text-comea-accent">Síguenos</h4> <div class="flex space-x-4"> <!-- Generamos los íconos de redes sociales --> <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition" aria-label="Facebook"> <svg width="1em" height="1em" data-icon="mdi:facebook">   <symbol id="ai:mdi:facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"/></symbol><use href="#ai:mdi:facebook"></use>  </svg> </a><a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition" aria-label="Twitter"> <svg width="1em" height="1em" data-icon="mdi:twitter">   <symbol id="ai:mdi:twitter" viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"/></symbol><use href="#ai:mdi:twitter"></use>  </svg> </a><a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition" aria-label="LinkedIn"> <svg width="1em" height="1em" data-icon="mdi:linkedin">   <symbol id="ai:mdi:linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></symbol><use href="#ai:mdi:linkedin"></use>  </svg> </a> </div> </div> </div> <div class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-8 text-center text-xs text-blue-300">
+&copy; 2025 COMEA | Consejo Mexicano de Educación Aeroespacial. Todos los derechos reservados.
+</div> </footer> <!-- 
+    1. OVERLAY (FONDO OSCURO)
+    Z-index: 50 (Detrás del panel)
+--><div id="news-overlay" class="fixed inset-0 bg-slate-900/60 z-[50] opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-sm" onclick="window.closeNewsDetail()"></div> <!-- 
+    2. PANEL LATERAL (SIDEBAR)
+    Z-index: 60 (Encima del overlay)
+    Fondo: Blanco PURO (bg-white) sin filtros extraños en móvil.
+--> <div id="news-sidebar" style="transform: translateX(100%);" class="fixed inset-y-0 right-0 z-[60] w-full lg:w-2/3 xl:w-1/2
+           bg-white dark:bg-dark-card
+           shadow-2xl transition-transform duration-500 ease-in-out
+           border-l border-transparent dark:border-slate-800"> <!-- Botón para CERRAR (La X) --> <button onclick="window.closeNewsDetail()" class="absolute top-6 right-6 lg:right-12 text-slate-400 hover:text-comea-main dark:hover:text-comea-tech text-3xl transition-colors z-20 hover:rotate-90 duration-300" aria-label="Cerrar Noticia"> <svg width="1em" height="1em" data-icon="fa6-solid:circle-xmark">   <symbol id="ai:fa6-solid:circle-xmark" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512a256 256 0 1 0 0-512a256 256 0 1 0 0 512m-81-337c9.4-9.4 24.6-9.4 33.9 0l47 47l47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47l47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47l-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47l-47-47c-9.4-9.4-9.4-24.6 0-33.9"/></symbol><use href="#ai:fa6-solid:circle-xmark"></use>  </svg> </button> <!-- Área de Contenido con Scroll --> <div id="news-content-area" class="h-full relative overflow-y-auto pt-8 pb-16 px-6 sm:px-12 lg:pl-16 lg:pr-12"> <!-- Cabecera (Título, Fecha, Categoría) --> <div class="mb-8 border-b border-slate-100 dark:border-slate-800 pb-6"> <span id="detail-category" class="px-3 py-1 bg-comea-accent/20 text-comea-main dark:text-comea-accent text-xs rounded-full font-bold uppercase shadow-sm tracking-wide"></span> <p class="text-sm text-slate-500 mt-4 mb-2 font-medium flex items-center gap-2"> <svg width="0.88em" height="1em" class="text-comea-tech" data-icon="fa6-regular:calendar">   <symbol id="ai:fa6-regular:calendar" viewBox="0 0 448 512"><path fill="currentColor" d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40H64C28.7 64 0 92.7 0 128v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64h-40V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40H152zM48 192h352v256c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16z"/></symbol><use href="#ai:fa6-regular:calendar"></use>  </svg> <span id="detail-date"></span> </p> <h2 id="detail-title" class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white leading-tight mt-2"></h2> </div> <!-- Cuerpo del Texto --> <div id="detail-body" class="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed"> <!-- Contenido --> </div> <!-- Galería de Imágenes (AHORA AL FINAL) --> <!-- Se muestra debajo del texto con un margen superior (mt-8) --> <div id="detail-images" class="grid grid-cols-2 gap-3 mt-8 hidden border-t border-slate-100 dark:border-slate-800 pt-8"> <!-- Se inyectan vía JS --> </div> </div> </div> <script>
+  // Función ABRIR
+  window.openNewsDetail = function (data) {
+    const sidebar = document.getElementById("news-sidebar");
+    const overlay = document.getElementById("news-overlay");
+
+    // 1. Inyectar Datos
+    if (data) {
+      const titleEl = document.getElementById("detail-title");
+      const dateEl = document.getElementById("detail-date");
+      const catEl = document.getElementById("detail-category");
+      const bodyEl = document.getElementById("detail-body");
+      const imagesEl = document.getElementById("detail-images");
+
+      if (titleEl) titleEl.innerText = data.title || "";
+      if (dateEl) dateEl.innerText = data.date || "";
+      if (catEl) catEl.innerText = data.category || "";
+      if (bodyEl) bodyEl.innerHTML = data.content || "";
+
+      // Galería de Imágenes
+      if (imagesEl) {
+        if (data.images && data.images.length > 0) {
+          imagesEl.innerHTML = data.images
+            .map(
+              (url) => `
+                        <div class="rounded-lg overflow-hidden shadow-md h-48 group relative cursor-zoom-in">
+                            <img src="${url}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Noticia">
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                    `
+            )
+            .join("");
+          imagesEl.classList.remove("hidden");
+          // Ajustamos el grid si hay solo 1 imagen para que ocupe todo el ancho
+          if (data.images.length === 1) {
+            imagesEl.classList.remove("grid-cols-2");
+            imagesEl.classList.add("grid-cols-1");
+          } else {
+            imagesEl.classList.add("grid-cols-2");
+            imagesEl.classList.remove("grid-cols-1");
+          }
+        } else {
+          imagesEl.classList.add("hidden");
+          imagesEl.innerHTML = "";
+        }
+      }
+    }
+
+    // 2. Mostrar (Animaciones)
+    if (sidebar) sidebar.style.transform = "translateX(0)";
+    if (overlay) {
+      overlay.classList.remove("opacity-0", "pointer-events-none");
+      overlay.classList.add("opacity-100", "pointer-events-auto");
+    }
+    document.body.style.overflow = "hidden";
+  };
+
+  // Función CERRAR
+  window.closeNewsDetail = function () {
+    const sidebar = document.getElementById("news-sidebar");
+    const overlay = document.getElementById("news-overlay");
+
+    if (sidebar) sidebar.style.transform = "translateX(100%)";
+    if (overlay) {
+      overlay.classList.remove("opacity-100", "pointer-events-auto");
+      overlay.classList.add("opacity-0", "pointer-events-none");
+    }
+    document.body.style.overflow = "";
+  };
+</script> <div id="history-overlay" class="fixed inset-0 bg-slate-900/60 z-[50] opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-sm" onclick="window.closeHistoryDetail()"></div> <div id="history-sidebar" style="transform: translateX(100%);" class="fixed inset-y-0 right-0 z-[60] w-full lg:w-2/3 xl:w-1/2 
+           bg-white dark:bg-dark-card 
+           shadow-2xl transition-transform duration-500 ease-in-out
+           border-l border-transparent dark:border-slate-800"> <button onclick="window.closeHistoryDetail()" class="absolute top-6 right-6 lg:right-12 text-slate-400 hover:text-comea-main dark:hover:text-comea-tech text-3xl transition-colors z-20 hover:rotate-90" aria-label="Cerrar historia completa">
+&times;
+</button> <div class="h-full overflow-y-auto pt-24 pb-12 px-6 lg:px-12"> <h1 class="text-3xl md:text-5xl font-display font-bold text-comea-main dark:text-white mb-6 border-b border-slate-200 dark:border-slate-700 pb-4">
+Historia Completa del COMEA
+</h1> <div class="text-slate-600 dark:text-slate-300 leading-relaxed space-y-4"> 
+    <p class="mb-6">COMEA A.C. fue fundado oficialmente en 2007 como respuesta a la creciente necesidad de estandarizar y elevar la calidad de la educación en el incipiente sector aeroespacial mexicano. Buscamos ser el organismo que garantiza que el capital humano egresado cumpla con las competencias y normativas de la industria global.</p>
+    
+    <h3 class="text-xl font-bold text-comea-main dark:text-comea-tech mt-8 mb-3">Inicios y Fundamento (2007-2010)</h3>
+    <p class="mb-6">Nacimos de la colaboración de 10 instituciones académicas pioneras. Este periodo se centró en la creación de los estatutos fundacionales, la definición de nuestra misión como asociación civil sin fines de lucro, y las primeras mesas de trabajo para alinear los currículos con las demandas de la industria.</p>
+    
+    <h3 class="text-xl font-bold text-comea-main dark:text-comea-tech mt-8 mb-3">Consolidación y Crecimiento (2011-2018)</h3>
+    <p class="mb-6">Durante esta etapa, la membresía de COMEA creció exponencialmente, integrando a universidades, politécnicos y centros tecnológicos de 15 estados de la República. Se formalizaron los primeros convenios estratégicos con cámaras industriales clave como FEMIA y se desarrollaron los primeros modelos de evaluación curricular estandarizados para el sector.</p>
+    
+    <h3 class="text-xl font-bold text-comea-main dark:text-comea-tech mt-8 mb-3">Visión de Futuro y Tecnología (2019-Actualidad)</h3>
+    <p class="mb-6">La última década se ha centrado en la adopción de tecnologías de vanguardia y la consolidación de alianzas. Hemos enfocado nuestros esfuerzos en la formación de talento en áreas como la fabricación aditiva, la aviónica y la industria 4.0. Nuestro objetivo principal es posicionar a México como un líder global en la formación de capital humano aeroespacial.</p>
+ </div> </div> </div> <script>
+    // Función CERRAR
+    window.closeHistoryDetail = function() {
+        const sidebar = document.getElementById('history-sidebar');
+        const overlay = document.getElementById('history-overlay');
+
+        if (sidebar) sidebar.style.transform = 'translateX(100%)';
+        if (overlay) {
+            overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+        document.body.style.overflow = ''; // Habilitar scroll
+    };
+
+    // Función ABRIR (llamada desde About.astro)
+    window.openHistoryDetail = function() {
+        const sidebar = document.getElementById('history-sidebar');
+        const overlay = document.getElementById('history-overlay');
+        
+        if (sidebar) sidebar.style.transform = 'translateX(0)';
+        if (overlay) {
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'pointer-events-auto');
+        }
+        document.body.style.overflow = 'hidden'; // Bloquear scroll de la página principal
+    };
+</script>   <!-- Script para el Modo Oscuro (Previene FOUC) --> <script>
+  const getTheme = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  };
+
+  const theme = getTheme();
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  document.addEventListener("astro:after-swap", () => {
+    const theme = getTheme();
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
+</script></body></html>

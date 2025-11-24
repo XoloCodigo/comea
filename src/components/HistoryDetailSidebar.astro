@@ -1,0 +1,78 @@
+---
+// TEXTO DE LA HISTORIA COMPLETA
+// *****************************************************************
+// IMPORTANTE: Sustituye este texto por el contenido exacto del PDF
+// *****************************************************************
+const completeHistory = `
+    <p class="mb-6">COMEA A.C. fue fundado oficialmente en 2007 como respuesta a la creciente necesidad de estandarizar y elevar la calidad de la educación en el incipiente sector aeroespacial mexicano. Buscamos ser el organismo que garantiza que el capital humano egresado cumpla con las competencias y normativas de la industria global.</p>
+    
+    <h3 class="text-xl font-bold text-comea-main dark:text-comea-tech mt-8 mb-3">Inicios y Fundamento (2007-2010)</h3>
+    <p class="mb-6">Nacimos de la colaboración de 10 instituciones académicas pioneras. Este periodo se centró en la creación de los estatutos fundacionales, la definición de nuestra misión como asociación civil sin fines de lucro, y las primeras mesas de trabajo para alinear los currículos con las demandas de la industria.</p>
+    
+    <h3 class="text-xl font-bold text-comea-main dark:text-comea-tech mt-8 mb-3">Consolidación y Crecimiento (2011-2018)</h3>
+    <p class="mb-6">Durante esta etapa, la membresía de COMEA creció exponencialmente, integrando a universidades, politécnicos y centros tecnológicos de 15 estados de la República. Se formalizaron los primeros convenios estratégicos con cámaras industriales clave como FEMIA y se desarrollaron los primeros modelos de evaluación curricular estandarizados para el sector.</p>
+    
+    <h3 class="text-xl font-bold text-comea-main dark:text-comea-tech mt-8 mb-3">Visión de Futuro y Tecnología (2019-Actualidad)</h3>
+    <p class="mb-6">La última década se ha centrado en la adopción de tecnologías de vanguardia y la consolidación de alianzas. Hemos enfocado nuestros esfuerzos en la formación de talento en áreas como la fabricación aditiva, la aviónica y la industria 4.0. Nuestro objetivo principal es posicionar a México como un líder global en la formación de capital humano aeroespacial.</p>
+`;
+---
+<div 
+    id="history-overlay" 
+    class="fixed inset-0 bg-slate-900/60 z-[50] opacity-0 pointer-events-none transition-opacity duration-500 backdrop-blur-sm"
+    onclick="window.closeHistoryDetail()"
+></div>
+
+<div 
+    id="history-sidebar" 
+    style="transform: translateX(100%);"
+    class="fixed inset-y-0 right-0 z-[60] w-full lg:w-2/3 xl:w-1/2 
+           bg-white dark:bg-dark-card 
+           shadow-2xl transition-transform duration-500 ease-in-out
+           border-l border-transparent dark:border-slate-800"
+>
+    <button 
+        onclick="window.closeHistoryDetail()" 
+        class="absolute top-6 right-6 lg:right-12 text-slate-400 hover:text-comea-main dark:hover:text-comea-tech text-3xl transition-colors z-20 hover:rotate-90"
+        aria-label="Cerrar historia completa"
+    >
+        &times;
+    </button>
+
+    <div class="h-full overflow-y-auto pt-24 pb-12 px-6 lg:px-12">
+        <h1 class="text-3xl md:text-5xl font-display font-bold text-comea-main dark:text-white mb-6 border-b border-slate-200 dark:border-slate-700 pb-4">
+            Historia Completa del COMEA
+        </h1>
+
+        <div class="text-slate-600 dark:text-slate-300 leading-relaxed space-y-4">
+            <Fragment set:html={completeHistory} />
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    // Función CERRAR
+    window.closeHistoryDetail = function() {
+        const sidebar = document.getElementById('history-sidebar');
+        const overlay = document.getElementById('history-overlay');
+
+        if (sidebar) sidebar.style.transform = 'translateX(100%)';
+        if (overlay) {
+            overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+        document.body.style.overflow = ''; // Habilitar scroll
+    };
+
+    // Función ABRIR (llamada desde About.astro)
+    window.openHistoryDetail = function() {
+        const sidebar = document.getElementById('history-sidebar');
+        const overlay = document.getElementById('history-overlay');
+        
+        if (sidebar) sidebar.style.transform = 'translateX(0)';
+        if (overlay) {
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'pointer-events-auto');
+        }
+        document.body.style.overflow = 'hidden'; // Bloquear scroll de la página principal
+    };
+</script>

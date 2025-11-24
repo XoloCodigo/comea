@@ -1,0 +1,88 @@
+---
+// =================================================================
+// Importaciones del Layout y Componentes del Sitio
+// =================================================================
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
+
+// Secciones Principales
+import About from "../components/About.astro";
+import MembersSection from "../components/MembersSection.astro";
+import VinculacionSection from "../components/VinculacionSection.astro";
+import NewsSection from "../components/NewsSection.astro";
+import VacantesSection from "../components/VacantesSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+
+// Componente para el Detalle de Noticias (Barra Lateral)
+import NewsDetailSidebar from "../components/NewsDetailSidebar.astro";
+import HistoryDetailSidebar from "../components/HistoryDetailSidebar.astro";
+
+// Componente Mockup para Convocatoria
+import ConvocatoriaSection from "../components/ConvocatoriaSection.astro";
+
+// Importamos los datos centralizados (Estadísticas) para no tenerlos "quemados" en el código
+import { STATS } from "../consts";
+---
+
+<Layout title="COMEA | Consejo Mexicano de Educación Aeroespacial">
+  <header>
+    <Navbar />
+  </header>
+
+  <main class="pt-0 min-h-screen flex flex-col justify-between">
+    <!-- 1. HERO (ID = home) -->
+    <Hero />
+
+    <!-- 2. BARRA DE ESTADÍSTICAS -->
+    <section
+      id="stats"
+      class="bg-white dark:bg-dark-card border-b border-slate-100 dark:border-slate-800 py-12"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+      >
+        <!-- Iteramos sobre el array STATS para generar cada contador -->
+        {
+          STATS.map((stat) => (
+            <div>
+              <div class="text-4xl font-bold text-comea-main dark:text-comea-tech mb-1">
+                {stat.value}
+              </div>
+              <div class="text-sm text-slate-500 uppercase tracking-wide font-semibold">
+                {stat.label}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- 3. SECCIÓN NOSOTROS (ID = nosotros) -->
+    <About />
+
+    <!-- 4. SECCIÓN MIEMBROS (ID = miembros) -->
+    <MembersSection />
+
+    <!-- 5. SECCIÓN VINCULACIÓN (ID = vinculacion) -->
+    <VinculacionSection />
+
+    <!-- 6. SECCIÓN NOTICIAS (ID = noticias) -->
+    <NewsSection />
+
+    <!-- 7. SECCIÓN VACANTES (ID = vacantes) -->
+    <VacantesSection />
+
+    <!-- 8. SECCIÓN CONVOCATORIA (ID = convocatoria) -->
+    <ConvocatoriaSection />
+
+    <!-- 9. SECCIÓN CONTACTO (ID = contacto) -->
+    <ContactSection />
+  </main>
+
+  <Footer />
+
+  <NewsDetailSidebar />
+  <HistoryDetailSidebar />
+</Layout>

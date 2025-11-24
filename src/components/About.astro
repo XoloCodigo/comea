@@ -1,0 +1,252 @@
+---
+/**
+ * Componente: About (Nosotros)
+ *
+ * Muestra la información institucional: Misión, Visión, Historia y Consejo Directivo.
+ *
+ * INTEGRACIÓN CON WORDPRESS:
+ * - La información general (Misión, Visión) puede ir en una página de opciones o una página estática "Nosotros".
+ * - El Consejo Administrativo DEBE ser un Custom Post Type (CPT) llamado "Directorio" o "Equipo".
+ * - Campos para el CPT "Equipo":
+ *   - Nombre
+ *   - Cargo (Presidente, Secretario, etc.)
+ *   - Foto (Imagen destacada)
+ *   - Orden de aparición
+ *   - Tipo de miembro (Consejo, Honorífico, etc.) para filtrar y estilizar.
+ */
+import { Icon } from "astro-icon/components";
+---
+
+<section id="nosotros" class="py-20 max-w-7xl mx-auto px-6">
+  <div class="text-center mb-20">
+    <span class="text-comea-tech font-bold tracking-wider uppercase text-sm"
+      >Nuestra Identidad</span
+    >
+    <h1
+      class="text-4xl md:text-5xl font-display font-bold text-comea-main dark:text-white mt-2 mb-8"
+    >
+      ¿Qué es el COMEA?
+    </h1>
+    <div
+      class="max-w-4xl mx-auto bg-white dark:bg-dark-card p-8 rounded-2xl shadow-xl border-l-4 border-comea-accent"
+    >
+      <p
+        class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light leading-relaxed"
+      >
+        "Somos una asociación civil de carácter estrictamente académico y sin
+        fines de lucro, cuya visión es ser un referente para el desarrollo
+        ordenado de las competencias y capacidades profesionales del capital
+        humano que requiere la industria aeroespacial mexicana."
+      </p>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+    <div class="relative">
+      <div
+        class="absolute -top-4 -left-4 w-20 h-20 bg-comea-accent/20 rounded-full blur-xl"
+      >
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        class="relative rounded-2xl shadow-2xl z-10 w-full object-cover h-96"
+        alt="Consejo Directivo"
+      />
+    </div>
+
+    <div>
+      <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">
+        Nuestra Historia
+      </h3>
+      <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+        El Consejo Mexicano de Educación Aeroespacial (COMEA) se fundó en 2007
+        con 10 instituciones miembro. A través de los años, hemos crecido
+        integrando a las universidades más prestigiosas para estandarizar y
+        elevar la calidad educativa del sector.
+      </p>
+      <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+        Recientemente, celebramos la toma de protesta del nuevo Consejo
+        Administrativo para el periodo 2024-2027, reafirmando nuestro compromiso
+        de ser la plataforma que facilita la colaboración efectiva entre la
+        academia y la industria.
+      </p>
+      <button
+        onclick="window.openHistoryDetail()"
+        class="mt-4 px-6 py-3 bg-comea-tech text-white rounded-lg font-bold hover:bg-opacity-80 transition flex items-center w-full md:w-auto justify-center"
+      >
+        Conocer la Historia Completa <Icon
+          name="fa6-solid:arrow-right"
+          class="ml-2"
+        />
+      </button>
+    </div>
+  </div>
+
+  <div class="mb-20">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-bold text-comea-main dark:text-white">
+        Consejo Administrativo
+      </h3>
+      <p class="text-slate-500 mt-2 font-medium">Periodo 2024 - 2027</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-main bg-white dark:bg-dark-card"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Federico+Perez&background=0F2E4A&color=fff&size=128"
+            alt="Presidente"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Ing. Federico Pérez Fuentes
+        </h4>
+        <span
+          class="inline-block px-2 py-1 bg-comea-main text-white text-xs font-bold rounded-full"
+          >Presidente</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-light bg-white dark:bg-dark-card"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Sergio+Mancinas&background=1E4B75&color=fff&size=128"
+            alt="Secretario"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Ing. Sergio Mancinas
+        </h4>
+        <span
+          class="inline-block px-2 py-1 bg-comea-light text-white text-xs font-bold rounded-full"
+          >Secretario</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-light bg-white dark:bg-dark-card"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Diego+Padilla&background=1E4B75&color=fff&size=128"
+            alt="Tesorero"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Dr. Diego Alfredo Padilla
+        </h4>
+        <span
+          class="inline-block px-2 py-1 bg-comea-light text-white text-xs font-bold rounded-full"
+          >Tesorero</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Luis+Rivera&background=94a3b8&color=fff&size=128"
+            alt="Consejero"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Mtro. Luis Alfonso Rivera
+        </h4>
+        <span class="text-slate-500 text-xs font-medium uppercase"
+          >Consejero</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Jose+Alarcon&background=94a3b8&color=fff&size=128"
+            alt="Consejero"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Dr. José de Jesús Alarcón
+        </h4>
+        <span class="text-slate-500 text-xs font-medium uppercase"
+          >Consejero</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Arnulfo+Trevino&background=94a3b8&color=fff&size=128"
+            alt="Consejero"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Dr. Arnulfo Treviño Cubero
+        </h4>
+        <span class="text-slate-500 text-xs font-medium uppercase"
+          >Consejero</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 bg-slate-50 dark:bg-slate-800/50"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Guillermo+Mejia&background=94a3b8&color=fff&size=128"
+            alt="Consejero"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          Lic. Guillermo Mejía Ángeles
+        </h4>
+        <span class="text-slate-500 text-xs font-medium uppercase"
+          >Consejero</span
+        >
+      </div>
+      <div
+        class="glass-card p-6 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1 border-t-4 border-comea-accent bg-white dark:bg-dark-card"
+      >
+        <div
+          class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
+        >
+          <img
+            src="https://ui-avatars.com/api/?name=Jorge+Gutierrez&background=F2C744&color=fff&size=128"
+            alt="Honorífico"
+            class="w-full h-full"
+          />
+        </div>
+        <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
+          M. en A. Jorge Gutiérrez
+        </h4>
+        <span
+          class="inline-block px-2 py-1 bg-comea-accent text-comea-main text-xs font-bold rounded-full"
+          >Miembro Honorífico</span
+        >
+      </div>
+    </div>
+  </div>
+</section>
