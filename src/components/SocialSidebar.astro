@@ -1,0 +1,101 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socials = [
+  {
+    name: "Facebook",
+    href: "https://facebook.com",
+    icon: "mdi:facebook",
+    color: "hover:text-[#1877F2]",
+  },
+  {
+    name: "X",
+    href: "https://x.com",
+    icon: "fa6-brands:x-twitter",
+    color: "hover:text-black dark:hover:text-white",
+  },
+  {
+    name: "Correo",
+    href: "mailto:contacto@comea.org.mx",
+    icon: "mdi:email",
+    color: "hover:text-[#EA4335]",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: "mdi:linkedin",
+    color: "hover:text-[#0A66C2]",
+  },
+];
+---
+
+<div class="fixed left-4 top-1/2 -translate-y-1/2 z-40 flex items-center">
+  <!-- Sidebar Container -->
+  <div
+    id="social-sidebar"
+    class="flex flex-col gap-3 p-3 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border border-white/20 shadow-xl rounded-full transition-all duration-500 transform -translate-x-[200%] opacity-0"
+  >
+    {
+      socials.map((social) => (
+        <a
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.name}
+          class={`p-2 rounded-full transition-transform duration-200 hover:scale-110 text-slate-600 dark:text-slate-300 ${social.color}`}
+        >
+          <Icon name={social.icon} class="w-6 h-6" />
+        </a>
+      ))
+    }
+
+    <!-- Hide Button (inside the bar) -->
+    <button
+      id="hide-social-btn"
+      class="mt-2 p-2 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 hover:text-comea-main transition-colors"
+      aria-label="Ocultar barra social"
+    >
+      <Icon name="mdi:chevron-left" class="w-5 h-5" />
+    </button>
+  </div>
+
+  <!-- Show Button (visible when hidden) -->
+  <button
+    id="show-social-btn"
+    class="absolute left-0 p-3 bg-comea-main text-white rounded-r-full shadow-lg transition-all duration-500 transform translate-x-0 hover:pl-5"
+    aria-label="Mostrar redes sociales"
+  >
+    <Icon name="mdi:share-variant" class="w-5 h-5" />
+  </button>
+</div>
+
+<script>
+  const sidebar = document.getElementById("social-sidebar");
+  const showBtn = document.getElementById("show-social-btn");
+  const hideBtn = document.getElementById("hide-social-btn");
+
+  function toggleSidebar() {
+    const isHidden = sidebar.classList.contains("-translate-x-[200%]");
+
+    if (isHidden) {
+      // Show sidebar
+      sidebar.classList.remove("-translate-x-[200%]", "opacity-0");
+      sidebar.classList.add("translate-x-0", "opacity-100");
+
+      // Hide show button
+      showBtn.classList.add("-translate-x-full", "opacity-0");
+      showBtn.classList.remove("translate-x-0", "opacity-100");
+    } else {
+      // Hide sidebar
+      sidebar.classList.add("-translate-x-[200%]", "opacity-0");
+      sidebar.classList.remove("translate-x-0", "opacity-100");
+
+      // Show show button
+      showBtn.classList.remove("-translate-x-full", "opacity-0");
+      showBtn.classList.add("translate-x-0", "opacity-100");
+    }
+  }
+
+  showBtn?.addEventListener("click", toggleSidebar);
+  hideBtn?.addEventListener("click", toggleSidebar);
+</script>

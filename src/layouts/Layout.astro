@@ -1,6 +1,7 @@
 ---
 // Importamos las transiciones de vista nativas de Astro para la navegación SPA
 import { ClientRouter } from "astro:transitions";
+import SocialSidebar from "../components/SocialSidebar.astro";
 
 interface Props {
   title: string;
@@ -37,6 +38,7 @@ const { title } = Astro.props;
   <body
     class="bg-slate-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 font-sans transition-colors duration-300 antialiased"
   >
+    <SocialSidebar />
     <slot />
   </body>
 </html>
