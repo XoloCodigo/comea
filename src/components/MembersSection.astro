@@ -176,6 +176,9 @@ const totalMembers = members.length;
       }
     };
 
+    // Variable para rastrear el ancho previo y evitar recargas por scroll en móvil (barra de dirección)
+    let lastWidth = window.innerWidth;
+
     // Función para asegurar el estado inicial al cargar o al cambiar de tamaño
     function initializeMemberView() {
       const grid = document.getElementById("members-grid");
@@ -188,29 +191,41 @@ const totalMembers = members.length;
 
       const isMobile = window.innerWidth < 640;
 
-      // Ocultar las tarjetas si estamos en móvil
+      // Si estamos en desktop, siempre mostrar todo y ocultar botón
+      if (!isMobile) {
+        Array.from(grid.children).forEach((card) => {
+          card.style.display = "flex";
+        });
+        showMoreContainer.classList.add("hidden");
+        return;
+      }
+
+      // Si estamos en móvil, reiniciamos al estado colapsado
+      // NOTA: Esto solo debe pasar en carga inicial o cambio real de ancho, no en scroll
       Array.from(grid.children).forEach((card) => {
         const index = parseInt(card.getAttribute("data-index"));
         if (index >= MOBILE_LIMIT) {
-          // En móvil, forzamos a ocultar las extras. En desktop, Tailwind las muestra vía 'sm:flex'.
-          card.style.display = isMobile ? "none" : "flex";
+          card.style.display = "none";
         }
       });
 
-      if (isMobile) {
-        button.setAttribute("data-expanded", "false");
-        if (textSpan)
-          textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
-        if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
-        showMoreContainer.classList.remove("hidden");
-      } else {
-        // En desktop, ocultamos el botón
-        showMoreContainer.classList.add("hidden");
-      }
+      button.setAttribute("data-expanded", "false");
+      if (textSpan)
+        textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
+      if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
+      showMoreContainer.classList.remove("hidden");
+    }
+
+    function handleResize() {
+      // Ignorar cambios de tamaño verticales (como cuando se oculta la barra de navegación en móvil al hacer scroll)
+      if (window.innerWidth === lastWidth) return;
+
+      lastWidth = window.innerWidth;
+      initializeMemberView();
     }
 
     // Ejecutar en carga inicial y al redimensionar
     document.addEventListener("DOMContentLoaded", initializeMemberView);
-    window.addEventListener("resize", initializeMemberView);
+    window.addEventListener("resize", handleResize);
   </script>
 </section>
