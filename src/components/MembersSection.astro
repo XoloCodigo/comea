@@ -13,8 +13,79 @@
  *   - Enlace al sitio web (opcional)
  */
 import { Icon } from "astro-icon/components";
-
 import { Image } from "astro:assets";
+
+// Mapeo de nombres de instituciones a sus sitios web oficiales
+const memberWebsites: Record<string, string> = {
+  "Universidad Tecnológica de Jalisco":
+    "https://www.utj.edu.mx/oferta-academica/licenciatura-ingenieria/",
+  "Universidad Politécnica de Chihuahua":
+    "https://www.upchihuahua.edu.mx/ingenieria-aeronautica/",
+  "Universidad Politécnica Metropolitana de Hidalgo":
+    "https://www.upmh.edu.mx/oferta-educativa/A",
+  "Instituto Tecnológico Sanmiguelense de Estudios Superiores":
+    "https://www.itses.edu.mx/",
+  "Colegio Aeronáutico del Bajío": "https://cabajio.com/",
+  "Instituto de Apoyo y Capacitación y Tecnología No. 5 'Fases Del Hierro' del IPN":
+    "https://www.inadet.com.mx/cursos",
+  "Universidad Aeronáutica en Querétaro": "https://www.unaq.edu.mx/",
+  "Instituto Tecnológico de Tijuana":
+    "https://www.tectijuana.edu.mx/oferta/Paginas/oferta-guaymas.aspx",
+  "Universidad Autónoma de Nuevo León":
+    "https://www.uanl.mx/oferta/ingenieria-aeronautica/",
+  "Tecnológico de Estudios Superiores de Ecatepec":
+    "https://academico.tese.edu.mx/init_Academico/Public_carrera.aspx?id_c=18",
+  "Universidad Tecnológica de Tijuana": "https://www.uttijuana.edu.mx/",
+  "Universidad Autónoma de Ciudad Juárez":
+    "https://www.uacj.mx/oferta/programas.html?programa=148004954&area=conexion-aeronautica&carrera.aspx",
+  "Universidad Tecnológica del Sur de Sonora":
+    "https://uts.sonora.gob.mx/index.php?option=com_sppagebuilder&view=page&id=75",
+  "Universidad Marista Guadalajara":
+    "https://umg.edu.mx/portal/maestria-aeroespacial/",
+  "Instituto Educativo del Noreste, A.C. (CETYS Universidad) Baja California":
+    "https://www.cetys.mx/noticias/2024/11/cetys-CETYS-MII-Especialidades-Disen%CC%83o-Aeroespacial-2024.pdf",
+  "Colegio Nacional de Educación Profesional Querétaro, CONALEP PLANTEL AERONÁUTICO":
+    "https://www.conalep.edu.mx/gobmx/oferta/aeronautica",
+  "Centro de Estudios Científicos y Tecnológicos No. 7 'Cuauhtémoc' del IPN":
+    "https://www.cecyt2.ipn.mx/oferta/Paginas/inicio.html?carrera=8&2Bingenieria=T%C3%A9cnico=Aeron%C3%A1utica",
+  "Centro de Estudios Científicos y Tecnológicos No.3 'Cuauhtémoc Ramírez 'Rojo' del IPN":
+    "https://www.cecyt3.ipn.mx/view/OfertaEducativa/aeronautica.html",
+  "Centro de Estudios Científicos y Tecnológicos No. 17 'León 'Guzmán' de' del IPN":
+    "https://www.cecyt17.ipn.mx/oferta/Paginas/inicio.html?carrera=8&2Bingenieria=T%C3%A9cnico=Aeron%C3%A1utica",
+  "Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato (UPIIG IPN)":
+    "https://www.upiig.ipn.mx/oferta-educativa/aeronautica.html",
+  "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME IPN)":
+    "https://www.esimetic.ipn.mx/oferta/Paginas/inicio.html?carrera=1&ingenieria=T%C3%A9cnico=Aeron%C3%A1utica",
+  "Centro de Desarrollo Aeroespacial": "https://www.gob.mx/sedena/",
+  "Instituto Tecnológico y de Estudios Superiores de Monterrey":
+    "https://tec.mx/es/educacion",
+  "Instituto Tecnológico de Ensenada":
+    "https://www.itensenada.tecnm.mx/oferta-educativa/",
+  "Instituto Tecnológico de Hermosillo": "https://ith.mx/aeronautica.html",
+  "Instituto Tecnológico Superior de Irapuato":
+    "https://guanajuato.tecnm.mx/inicio/aeronautica/carrera.html",
+  "Universidad Tecnológica de Guaymas": "https://www.utguaymas.edu.mx/ing/",
+  "Universidad Politécnica de Apodaca": "https://www.upapod.edu.mx/a",
+  "Universidad Politécnica de Yucatán": "https://www.university.upy.edu.mx/",
+  "Universidad Tecnológica de Hermosillo":
+    "https://uth.sonora.gob.mx/index.php?option=com_sppagebuilder&view=page&id=73",
+  "Universidad Tecnológica de Nezahualcóyotl":
+    "https://emdulos.utn.edu.mx/planes_programas/view/751&Mantenimiento-industrial.php",
+  "Universidad Tecnológica de Nogales":
+    "https://www.utnogales.edu.mx/oferta_educativa.html",
+  "Universidad Tecnológica Metropolitana":
+    "https://www.utmetro.edu.mx/especialidad-aeronautica/",
+  "Universidad Autónoma de Baja California":
+    "https://ingenieria.mxl.uabc.mx/fiem/",
+  "Universidad Autónoma de Chihuahua":
+    "https://uach.mx/pregrado/licenciatura-en-ingenieria-aeroespacial/",
+  "Universidad Nacional Autónoma de México":
+    "https://www.ingenieria.unam.mx/programas_academicos/licenciaturas/aeroespacial.php",
+  "Universidad Popular Autónoma del Estado de Puebla (UPAEP)":
+    "https://upaep.mx/micrositios/ingenieria-aeroespacial",
+  "Escuela industrial y Preparatoria Técnica":
+    "https://www.uanl.mx/escuelas/preparatoria-tecnica/oferta-educativa/tecnico-en-mantenimiento-aeronautico-bilingue-programa-en-ingles/",
+};
 
 // Cargar logos dinámicamente desde la carpeta de assets
 const membersGlob = import.meta.glob<{ default: ImageMetadata }>(
@@ -30,9 +101,37 @@ const members = Object.entries(membersGlob)
     // Limpiar el nombre (quitar dobles espacios si los hay)
     const name = rawName.replace(/\s+/g, " ").trim();
 
+    // Heurística simple para categorizar (Pública vs Privada)
+    // Por defecto asumimos pública, y buscamos palabras clave de privadas
+    let category = "publica";
+    const lowerName = name.toLowerCase();
+    const privateKeywords = [
+      "itesm",
+      "monterrey",
+      "upaep",
+      "cetys",
+      "marista",
+      "noreste",
+      "salle",
+      "anahuac",
+      "anáhuac",
+      "ibero",
+      "popular",
+      "privada",
+    ];
+
+    if (privateKeywords.some((keyword) => lowerName.includes(keyword))) {
+      category = "privada";
+    }
+
+    // Buscar el sitio web correspondiente
+    const website = memberWebsites[name] || null;
+
     return {
       name: name,
       logo: module.default,
+      category: category,
+      website: website,
     };
   })
   .sort((a, b) => a.name.localeCompare(b.name));
@@ -48,23 +147,26 @@ const totalMembers = members.length;
         Instituciones Miembro
       </h1>
       <p class="text-slate-500 dark:text-slate-400">
-        La red académica aeroespacial aeroespacial más grande de México.
+        La red académica aeroespacial más grande de México.
       </p>
     </div>
 
-    <!-- Filtros (Funcionalidad visual) -->
+    <!-- Filtros -->
     <div class="mt-6 md:mt-0 flex gap-2 overflow-x-auto pb-2 no-scrollbar">
       <button
-        class="px-4 py-2 rounded-full bg-comea-main text-white text-sm font-medium transition-colors hover:bg-comea-light shadow-md whitespace-nowrap"
-        >Todos</button
+        class="filter-btn active px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap data-[active=true]:bg-comea-main data-[active=true]:text-white"
+        data-filter="all"
+        data-active="true">Todos</button
       >
       <button
-        class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap"
-        >Públicas</button
+        class="filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap data-[active=true]:bg-comea-main data-[active=true]:text-white"
+        data-filter="publica"
+        data-active="false">Públicas</button
       >
       <button
-        class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap"
-        >Privadas</button
+        class="filter-btn px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors whitespace-nowrap data-[active=true]:bg-comea-main data-[active=true]:text-white"
+        data-filter="privada"
+        data-active="false">Privadas</button
       >
     </div>
   </div>
@@ -75,27 +177,53 @@ const totalMembers = members.length;
     class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-5"
   >
     {
-      members.map((member, index) => (
-        <div
-          class={`
+      members.map((member, index) => {
+        const cardClasses = `
+                    member-card
                     aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-3 
                     hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
                     ${index >= MOBILE_LIMIT ? "hidden sm:flex" : "flex"} 
-                `}
-          data-index={index}
-        >
-          <div class="w-full h-20 mb-1 flex items-center justify-center p-1">
-            <Image
-              src={member.logo}
-              alt={member.name}
-              class="max-w-full max-h-full object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-            />
+                `;
+
+        return member.website ? (
+          <a
+            href={member.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={cardClasses}
+            data-index={index}
+            data-category={member.category}
+          >
+            <div class="w-full h-20 mb-1 flex items-center justify-center p-1">
+              <Image
+                src={member.logo}
+                alt={member.name}
+                class="max-w-full max-h-full object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-2 leading-tight">
+              {member.name}
+            </span>
+          </a>
+        ) : (
+          <div
+            class={cardClasses}
+            data-index={index}
+            data-category={member.category}
+          >
+            <div class="w-full h-20 mb-1 flex items-center justify-center p-1">
+              <Image
+                src={member.logo}
+                alt={member.name}
+                class="max-w-full max-h-full object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-2 leading-tight">
+              {member.name}
+            </span>
           </div>
-          <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-2 leading-tight">
-            {member.name}
-          </span>
-        </div>
-      ))
+        );
+      })
     }
   </div>
 
@@ -105,7 +233,6 @@ const totalMembers = members.length;
       <div id="show-more-container" class="mt-10 text-center sm:hidden">
         <button
           id="show-more-btn"
-          onclick="toggleMembersVisibility()"
           class="inline-flex items-center px-6 py-3 rounded-lg bg-comea-main text-white font-bold text-sm hover:bg-comea-light transition-colors shadow-lg shadow-blue-900/30"
         >
           <span id="show-more-text">
@@ -134,98 +261,102 @@ const totalMembers = members.length;
   </div>
 
   <script define:vars={{ totalMembers, MOBILE_LIMIT }} is:inline>
-    // Ahora las variables totalMembers y MOBILE_LIMIT están disponibles aquí directamente
+    // Variables globales
+    let currentFilter = "all";
+    let isExpanded = false;
 
-    // Lógica para alternar la visibilidad de las tarjetas en móvil
-    window.toggleMembersVisibility = function () {
-      const grid = document.getElementById("members-grid");
-      const button = document.getElementById("show-more-btn");
-      const textSpan = document.getElementById("show-more-text");
-      const iconSpan = document.getElementById("show-more-icon");
-      const section = document.getElementById("miembros"); // Obtenemos la sección completa
+    // Elementos DOM
+    const grid = document.getElementById("members-grid");
+    const showMoreBtn = document.getElementById("show-more-btn");
+    const showMoreContainer = document.getElementById("show-more-container");
+    const textSpan = document.getElementById("show-more-text");
+    const iconSpan = document.getElementById("show-more-icon");
+    const filterBtns = document.querySelectorAll(".filter-btn");
 
-      if (!grid || !button || !section) return; // Evita errores si no encuentra los elementos
+    // Función principal de filtrado y visualización
+    function updateView() {
+      if (!grid) return;
 
-      // Obtener solo las tarjetas que deben ser ocultadas/mostradas
-      const hiddenCards = Array.from(grid.children).filter((card) => {
-        const index = parseInt(card.getAttribute("data-index"));
-        // Filtramos las tarjetas que están más allá del límite
-        return index >= MOBILE_LIMIT;
-      });
-
-      const isExpanded = button.getAttribute("data-expanded") === "true";
-
-      if (isExpanded) {
-        // OCULTAR
-        if (window.innerWidth < 640) {
-          hiddenCards.forEach((card) => (card.style.display = "none"));
-        }
-        if (textSpan)
-          textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
-        if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
-        button.setAttribute("data-expanded", "false");
-
-        // SOLUCIÓN: Hacemos scroll suave al inicio de la sección después de ocultar
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        // MOSTRAR
-        hiddenCards.forEach((card) => (card.style.display = "flex"));
-        if (textSpan) textSpan.innerText = `Ocultar instituciones`;
-        if (iconSpan) iconSpan.style.transform = "rotate(180deg)";
-        button.setAttribute("data-expanded", "true");
-      }
-    };
-
-    // Variable para rastrear el ancho previo y evitar recargas por scroll en móvil (barra de dirección)
-    let lastWidth = window.innerWidth;
-
-    // Función para asegurar el estado inicial al cargar o al cambiar de tamaño
-    function initializeMemberView() {
-      const grid = document.getElementById("members-grid");
-      const button = document.getElementById("show-more-btn");
-      const showMoreContainer = document.getElementById("show-more-container");
-      const textSpan = document.getElementById("show-more-text");
-      const iconSpan = document.getElementById("show-more-icon");
-
-      if (!grid || !showMoreContainer || !button) return;
-
+      const cards = Array.from(grid.getElementsByClassName("member-card"));
       const isMobile = window.innerWidth < 640;
 
-      // Si estamos en desktop, siempre mostrar todo y ocultar botón
-      if (!isMobile) {
-        Array.from(grid.children).forEach((card) => {
-          card.style.display = "flex";
-        });
-        showMoreContainer.classList.add("hidden");
-        return;
-      }
+      // 1. Filtrar tarjetas visibles por categoría
+      const filteredCards = cards.filter((card) => {
+        const category = card.getAttribute("data-category");
+        const matchesFilter =
+          currentFilter === "all" || category === currentFilter;
 
-      // Si estamos en móvil, reiniciamos al estado colapsado
-      // NOTA: Esto solo debe pasar en carga inicial o cambio real de ancho, no en scroll
-      Array.from(grid.children).forEach((card) => {
-        const index = parseInt(card.getAttribute("data-index"));
-        if (index >= MOBILE_LIMIT) {
-          card.style.display = "none";
+        // Si no coincide con el filtro, ocultar inmediatamente
+        if (!matchesFilter) {
+          card.classList.add("hidden");
+          card.classList.remove("flex");
+          return false;
+        }
+        return true;
+      });
+
+      // 2. Aplicar límite en móvil si no está expandido
+      filteredCards.forEach((card, idx) => {
+        const shouldShow = !isMobile || isExpanded || idx < MOBILE_LIMIT;
+        if (shouldShow) {
+          card.classList.remove("hidden");
+          card.classList.add("flex");
+        } else {
+          card.classList.add("hidden");
+          card.classList.remove("flex");
         }
       });
 
-      button.setAttribute("data-expanded", "false");
-      if (textSpan)
-        textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
-      if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
-      showMoreContainer.classList.remove("hidden");
+      // 3. Actualizar botón "Mostrar más"
+      if (showMoreContainer && isMobile) {
+        const hasMore = filteredCards.length > MOBILE_LIMIT;
+        showMoreContainer.style.display = hasMore ? "block" : "none";
+
+        if (textSpan) {
+          textSpan.textContent = isExpanded
+            ? "Mostrar menos"
+            : `Mostrar todas las ${filteredCards.length} instituciones`;
+        }
+
+        if (iconSpan) {
+          iconSpan.style.transform = isExpanded
+            ? "rotate(180deg)"
+            : "rotate(0deg)";
+        }
+      }
     }
 
-    function handleResize() {
-      // Ignorar cambios de tamaño verticales (como cuando se oculta la barra de navegación en móvil al hacer scroll)
-      if (window.innerWidth === lastWidth) return;
+    // Evento: Filtros
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        if (filter === currentFilter) return;
 
-      lastWidth = window.innerWidth;
-      initializeMemberView();
+        currentFilter = filter;
+        isExpanded = false; // Reset expansión al cambiar filtro
+
+        // Actualizar estado activo de botones
+        filterBtns.forEach((b) => {
+          const isActive = b.getAttribute("data-filter") === currentFilter;
+          b.setAttribute("data-active", isActive.toString());
+        });
+
+        updateView();
+      });
+    });
+
+    // Evento: Botón "Mostrar más"
+    if (showMoreBtn) {
+      showMoreBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        updateView();
+      });
     }
 
-    // Ejecutar en carga inicial y al redimensionar
-    document.addEventListener("DOMContentLoaded", initializeMemberView);
-    window.addEventListener("resize", handleResize);
+    // Evento: Resize
+    window.addEventListener("resize", updateView);
+
+    // Inicializar
+    updateView();
   </script>
 </section>
