@@ -14,43 +14,28 @@
  */
 import { Icon } from "astro-icon/components";
 
-// Lista de Miembros extraída del PDF y consolidada
-const members = [
-  "UNAM",
-  "IPN",
-  "UNAQ",
-  "UANL",
-  "ITESM",
-  "UACH",
-  "UPB",
-  "CETYS Universidad",
-  "INADET",
-  "Universidad Tecnológica de Tijuana",
-  "CAB",
-  "Universidad Politécnica de Chihuahua",
-  "Conalep Querétaro",
-  "UT Guaymas",
-  "UT Hermosillo",
-  "Universidad Politécnica Metropolitana de Hidalgo",
-  "UTJ",
-  "UPAEP",
-  "CENALTEC",
-  "Universidad Politécnica de Apodaca",
-  "Tecnológico de Monterrey",
-  "CDA",
-  "UAZ",
-  "UPIIG",
-  "Universidad Marista de Guadalajara",
-  "ITSON",
-  "ESIME Ticomán",
-  "Prepa Sanmiguelense",
-  "Tecnológico Nacional de México",
-  "Universidad Cuauhtémoc",
-  "UACJ",
-  "CECYT 17",
-  "Universidad Politécnica de Aguascalientes",
-  "Cluster Aeroespacial",
-];
+import { Image } from "astro:assets";
+
+// Cargar logos dinámicamente desde la carpeta de assets
+const membersGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/logos/*.{png,jpg,jpeg,svg}",
+  { eager: true }
+);
+
+const members = Object.entries(membersGlob)
+  .map(([path, module]) => {
+    // Usar el nombre del archivo como base
+    const rawName = path.split("/").pop()?.split(".")[0] || "Institución";
+
+    // Limpiar el nombre (quitar dobles espacios si los hay)
+    const name = rawName.replace(/\s+/g, " ").trim();
+
+    return {
+      name: name,
+      logo: module.default,
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
 // Límite para mostrar en móvil por defecto
 const MOBILE_LIMIT = 10;
 const totalMembers = members.length;
@@ -87,23 +72,27 @@ const totalMembers = members.length;
   <!-- Grid de Miembros Dinámico -->
   <div
     id="members-grid"
-    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+    class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-5"
   >
     {
       members.map((member, index) => (
         <div
           class={`
-                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-4 
+                    aspect-square glass-card rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center p-3 
                     hover:shadow-lg hover:border-comea-tech transition-all group cursor-pointer bg-white dark:bg-dark-card
                     ${index >= MOBILE_LIMIT ? "hidden sm:flex" : "flex"} 
                 `}
           data-index={index}
         >
-          <div class="w-12 h-12 mb-3 text-slate-300 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors flex items-center justify-center">
-            <Icon name="fa6-solid:building-columns" class="text-4xl" />
+          <div class="w-full h-20 mb-1 flex items-center justify-center p-1">
+            <Image
+              src={member.logo}
+              alt={member.name}
+              class="max-w-full max-h-full object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+            />
           </div>
-          <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-3 leading-tight">
-            {member}
+          <span class="text-xs font-bold text-center text-slate-600 dark:text-slate-300 line-clamp-2 leading-tight">
+            {member.name}
           </span>
         </div>
       ))
@@ -143,85 +132,85 @@ const totalMembers = members.length;
       Solicitar Afiliación
     </a>
   </div>
+
+  <script define:vars={{ totalMembers, MOBILE_LIMIT }} is:inline>
+    // Ahora las variables totalMembers y MOBILE_LIMIT están disponibles aquí directamente
+
+    // Lógica para alternar la visibilidad de las tarjetas en móvil
+    window.toggleMembersVisibility = function () {
+      const grid = document.getElementById("members-grid");
+      const button = document.getElementById("show-more-btn");
+      const textSpan = document.getElementById("show-more-text");
+      const iconSpan = document.getElementById("show-more-icon");
+      const section = document.getElementById("miembros"); // Obtenemos la sección completa
+
+      if (!grid || !button || !section) return; // Evita errores si no encuentra los elementos
+
+      // Obtener solo las tarjetas que deben ser ocultadas/mostradas
+      const hiddenCards = Array.from(grid.children).filter((card) => {
+        const index = parseInt(card.getAttribute("data-index"));
+        // Filtramos las tarjetas que están más allá del límite
+        return index >= MOBILE_LIMIT;
+      });
+
+      const isExpanded = button.getAttribute("data-expanded") === "true";
+
+      if (isExpanded) {
+        // OCULTAR
+        if (window.innerWidth < 640) {
+          hiddenCards.forEach((card) => (card.style.display = "none"));
+        }
+        if (textSpan)
+          textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
+        if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
+        button.setAttribute("data-expanded", "false");
+
+        // SOLUCIÓN: Hacemos scroll suave al inicio de la sección después de ocultar
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // MOSTRAR
+        hiddenCards.forEach((card) => (card.style.display = "flex"));
+        if (textSpan) textSpan.innerText = `Ocultar instituciones`;
+        if (iconSpan) iconSpan.style.transform = "rotate(180deg)";
+        button.setAttribute("data-expanded", "true");
+      }
+    };
+
+    // Función para asegurar el estado inicial al cargar o al cambiar de tamaño
+    function initializeMemberView() {
+      const grid = document.getElementById("members-grid");
+      const button = document.getElementById("show-more-btn");
+      const showMoreContainer = document.getElementById("show-more-container");
+      const textSpan = document.getElementById("show-more-text");
+      const iconSpan = document.getElementById("show-more-icon");
+
+      if (!grid || !showMoreContainer || !button) return;
+
+      const isMobile = window.innerWidth < 640;
+
+      // Ocultar las tarjetas si estamos en móvil
+      Array.from(grid.children).forEach((card) => {
+        const index = parseInt(card.getAttribute("data-index"));
+        if (index >= MOBILE_LIMIT) {
+          // En móvil, forzamos a ocultar las extras. En desktop, Tailwind las muestra vía 'sm:flex'.
+          card.style.display = isMobile ? "none" : "flex";
+        }
+      });
+
+      if (isMobile) {
+        button.setAttribute("data-expanded", "false");
+        if (textSpan)
+          textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
+        if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
+        showMoreContainer.classList.remove("hidden");
+      } else {
+        // En desktop, ocultamos el botón
+        showMoreContainer.classList.add("hidden");
+      }
+    }
+
+    // Ejecutar en carga inicial y al redimensionar
+    document.addEventListener("DOMContentLoaded", initializeMemberView);
+    window.addEventListener("resize", initializeMemberView);
+  </script>
 </section>
-
-<script define:vars={{ totalMembers, MOBILE_LIMIT }} is:inline>
-  // Ahora las variables totalMembers y MOBILE_LIMIT están disponibles aquí directamente
-
-  // Lógica para alternar la visibilidad de las tarjetas en móvil
-  window.toggleMembersVisibility = function () {
-    const grid = document.getElementById("members-grid");
-    const button = document.getElementById("show-more-btn");
-    const textSpan = document.getElementById("show-more-text");
-    const iconSpan = document.getElementById("show-more-icon");
-    const section = document.getElementById("miembros"); // Obtenemos la sección completa
-
-    if (!grid || !button || !section) return; // Evita errores si no encuentra los elementos
-
-    // Obtener solo las tarjetas que deben ser ocultadas/mostradas
-    const hiddenCards = Array.from(grid.children).filter((card) => {
-      const index = parseInt(card.getAttribute("data-index"));
-      // Filtramos las tarjetas que están más allá del límite
-      return index >= MOBILE_LIMIT;
-    });
-
-    const isExpanded = button.getAttribute("data-expanded") === "true";
-
-    if (isExpanded) {
-      // OCULTAR
-      if (window.innerWidth < 640) {
-        hiddenCards.forEach((card) => (card.style.display = "none"));
-      }
-      if (textSpan)
-        textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
-      if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
-      button.setAttribute("data-expanded", "false");
-
-      // SOLUCIÓN: Hacemos scroll suave al inicio de la sección después de ocultar
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      // MOSTRAR
-      hiddenCards.forEach((card) => (card.style.display = "flex"));
-      if (textSpan) textSpan.innerText = `Ocultar instituciones`;
-      if (iconSpan) iconSpan.style.transform = "rotate(180deg)";
-      button.setAttribute("data-expanded", "true");
-    }
-  };
-
-  // Función para asegurar el estado inicial al cargar o al cambiar de tamaño
-  function initializeMemberView() {
-    const grid = document.getElementById("members-grid");
-    const button = document.getElementById("show-more-btn");
-    const showMoreContainer = document.getElementById("show-more-container");
-    const textSpan = document.getElementById("show-more-text");
-    const iconSpan = document.getElementById("show-more-icon");
-
-    if (!grid || !showMoreContainer || !button) return;
-
-    const isMobile = window.innerWidth < 640;
-
-    // Ocultar las tarjetas si estamos en móvil
-    Array.from(grid.children).forEach((card) => {
-      const index = parseInt(card.getAttribute("data-index"));
-      if (index >= MOBILE_LIMIT) {
-        // En móvil, forzamos a ocultar las extras. En desktop, Tailwind las muestra vía 'sm:flex'.
-        card.style.display = isMobile ? "none" : "flex";
-      }
-    });
-
-    if (isMobile) {
-      button.setAttribute("data-expanded", "false");
-      if (textSpan)
-        textSpan.innerText = `Mostrar todas las ${totalMembers} instituciones`;
-      if (iconSpan) iconSpan.style.transform = "rotate(0deg)";
-      showMoreContainer.classList.remove("hidden");
-    } else {
-      // En desktop, ocultamos el botón
-      showMoreContainer.classList.add("hidden");
-    }
-  }
-
-  // Ejecutar en carga inicial y al redimensionar
-  document.addEventListener("DOMContentLoaded", initializeMemberView);
-  window.addEventListener("resize", initializeMemberView);
-</script>
