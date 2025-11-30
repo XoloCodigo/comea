@@ -2,6 +2,9 @@
 // Importamos los enlaces de navegación desde la configuración central
 import { NAV_LINKS } from "../consts";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import comeaLogoDark from "../assets/comea_a.png"; // Para modo oscuro
+import comeaLogoLight from "../assets/comea_b.png"; // Para modo claro
 ---
 
 <nav
@@ -15,23 +18,20 @@ import { Icon } from "astro-icon/components";
       <a
         href="#home"
         id="logo-link"
-        class="flex-shrink-0 flex items-center group gap-3"
+        class="flex-shrink-0 flex items-center group py-2"
       >
-        <div
-          class="w-10 h-10 bg-comea-main text-white flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300"
-        >
-          <Icon name="fa6-solid:plane-up" />
-        </div>
-        <div class="flex flex-col">
-          <span
-            class="font-display font-bold text-xl leading-none text-comea-main dark:text-white tracking-tight"
-            >COMEA</span
-          >
-          <span
-            class="text-[10px] font-semibold tracking-wider text-slate-500 dark:text-slate-400 uppercase"
-            >Educación Aeroespacial</span
-          >
-        </div>
+        <!-- Logo para modo claro -->
+        <Image
+          src={comeaLogoLight}
+          alt="COMEA Logo"
+          class="h-10 w-auto group-hover:scale-110 transition-transform duration-300 dark:hidden"
+        />
+        <!-- Logo para modo oscuro -->
+        <Image
+          src={comeaLogoDark}
+          alt="COMEA Logo"
+          class="h-10 w-auto group-hover:scale-110 transition-transform duration-300 hidden dark:block"
+        />
       </a>
 
       <!-- Menú de Escritorio -->

@@ -15,6 +15,18 @@
  *   - Tipo de miembro (Consejo, Honorífico, etc.) para filtrar y estilizar.
  */
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import nosotrosImg from "../assets/Nosotros.jpg";
+
+// Importar fotos del consejo
+import federicoPic from "../assets/consejo/Ing Federico¨Pérez Fuentes.png";
+import sergioMancinas from "../assets/consejo/Ing Sergio Mancinas.png";
+import diegoPadilla from "../assets/consejo/Dr Diego Alfredo Padilla Pérez.png";
+import luisRivera from "../assets/consejo/Mtro Luis Alfonso Rivera.png";
+import joseAlarcon from "../assets/consejo/Dr José de jesús Alarcón Córdova.png";
+import arnulfoTrevino from "../assets/consejo/Dr Arnulfo Treviño Cubero.png";
+import guillermoMejia from "../assets/consejo/Lic  Guillermo Mejía Angeles.png";
+import jorgeGutierrez from "../assets/consejo/M en A Jorge Gutiérrez de Velasco.png";
 ---
 
 <section id="nosotros" class="py-20 max-w-7xl mx-auto px-6">
@@ -47,11 +59,15 @@ import { Icon } from "astro-icon/components";
         class="absolute -top-4 -left-4 w-20 h-20 bg-comea-accent/20 rounded-full blur-xl"
       >
       </div>
-      <img
-        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        class="relative rounded-2xl shadow-2xl z-10 w-full object-cover h-96"
-        alt="Consejo Directivo"
-      />
+      <div
+        class="relative rounded-2xl shadow-2xl z-10 w-full bg-slate-100 dark:bg-slate-800 p-4"
+      >
+        <Image
+          src={nosotrosImg}
+          alt="Consejo Directivo COMEA"
+          class="w-full h-auto object-contain rounded-xl"
+        />
+      </div>
     </div>
 
     <div>
@@ -97,10 +113,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Federico+Perez&background=0F2E4A&color=fff&size=128"
+          <Image
+            src={federicoPic}
             alt="Presidente"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -117,10 +133,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Sergio+Mancinas&background=1E4B75&color=fff&size=128"
+          <Image
+            src={sergioMancinas}
             alt="Secretario"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -137,10 +153,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Diego+Padilla&background=1E4B75&color=fff&size=128"
+          <Image
+            src={diegoPadilla}
             alt="Tesorero"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -157,10 +173,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Luis+Rivera&background=94a3b8&color=fff&size=128"
+          <Image
+            src={luisRivera}
             alt="Consejero"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -176,10 +192,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Jose+Alarcon&background=94a3b8&color=fff&size=128"
+          <Image
+            src={joseAlarcon}
             alt="Consejero"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -195,10 +211,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Arnulfo+Trevino&background=94a3b8&color=fff&size=128"
+          <Image
+            src={arnulfoTrevino}
             alt="Consejero"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -214,10 +230,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Guillermo+Mejia&background=94a3b8&color=fff&size=128"
+          <Image
+            src={guillermoMejia}
             alt="Consejero"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">
@@ -233,10 +249,10 @@ import { Icon } from "astro-icon/components";
         <div
           class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden"
         >
-          <img
-            src="https://ui-avatars.com/api/?name=Jorge+Gutierrez&background=F2C744&color=fff&size=128"
+          <Image
+            src={jorgeGutierrez}
             alt="Honorífico"
-            class="w-full h-full"
+            class="w-full h-full object-cover"
           />
         </div>
         <h4 class="font-bold text-base dark:text-slate-100 leading-tight mb-1">

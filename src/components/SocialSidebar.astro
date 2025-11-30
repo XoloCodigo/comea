@@ -75,6 +75,8 @@ const socials = [
   const hideBtn = document.getElementById("hide-social-btn");
 
   function toggleSidebar() {
+    if (!sidebar || !showBtn) return;
+
     const isHidden = sidebar.classList.contains("-translate-x-[200%]");
 
     if (isHidden) {
