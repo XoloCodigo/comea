@@ -38,6 +38,13 @@ const { title } = Astro.props;
   <body
     class="bg-slate-50 text-slate-800 dark:bg-dark-bg dark:text-slate-200 font-sans transition-colors duration-300 antialiased"
   >
+    <!-- Skip to Main Content para accesibilidad (WCAG 2.4.1) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-6 focus:py-3 focus:bg-comea-main focus:text-white focus:rounded-lg focus:shadow-xl focus:outline-none focus:ring-4 focus:ring-comea-tech"
+    >
+      Saltar al contenido principal
+    </a>
     <SocialSidebar />
     <slot />
   </body>
@@ -71,6 +78,35 @@ const { title } = Astro.props;
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* ACCESIBILIDAD: Focus Indicators Visibles (WCAG 2.4.7) */
+  *:focus-visible {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 </style>
 

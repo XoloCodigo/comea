@@ -25,10 +25,14 @@ import { Icon } from "astro-icon/components";
   <!-- Imagen de Fondo Optimizada -->
   <Image
     src={heroBg}
-    alt="Ingeniería Aeroespacial"
+    alt=""
+    role="presentation"
+    aria-hidden="true"
     class="absolute inset-0 w-full h-full object-cover -z-20"
-    quality="mid"
+    quality="low"
     loading="eager"
+    fetchpriority="high"
+    format="webp"
     widths={[640, 768, 1024, 1280, 1536, 1920]}
     sizes="100vw"
   />
