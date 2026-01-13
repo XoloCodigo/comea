@@ -176,7 +176,7 @@ export async function fetchMembers() {
     query GetMembers {
       members {
         nodes {
-          title
+          title  
           memberFields {
             logo {
               sourceUrl

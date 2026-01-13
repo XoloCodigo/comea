@@ -21,6 +21,7 @@ import HistoryDetailSidebar from "../components/HistoryDetailSidebar.astro";
 
 // Componente Mockup para Convocatoria
 import ConvocatoriaSection from "../components/ConvocatoriaSection.astro";
+import ConcursosCarousel from "../components/ConcursosCarousel.astro";
 
 // Importamos los datos centralizados (Estadísticas) para no tenerlos "quemados" en el código
 import { STATS } from "../consts";
@@ -61,6 +62,9 @@ import { STATS } from "../consts";
         }
       </div>
     </section>
+
+    <!-- 2.5 CARRUSEL DE CONCURSOS -->
+    <ConcursosCarousel />
 
     <!-- 3. SECCIÓN NOSOTROS (ID = nosotros) -->
     <About />

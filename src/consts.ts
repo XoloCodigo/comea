@@ -21,8 +21,8 @@ export const NAV_LINKS = [
   { name: "Miembros", href: "#miembros" },
   { name: "Vinculación", href: "#vinculacion" },
   { name: "Noticias", href: "#noticias" },
-  { name: "Vacantes", href: "#vacantes" },
-  { name: "Convocatoria 2025", href: "#convocatoria" },
+  { name: "Talento", href: "#vacantes" },
+  { name: "Concursos", href: "#convocatoria" },
 ];
 
 /**
