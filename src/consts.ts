@@ -53,6 +53,6 @@ export const CONTACT_INFO = {
  */
 export const SOCIALS = [
   { name: "Facebook", href: "#", icon: "mdi:facebook" },
-  { name: "Twitter", href: "#", icon: "mdi:twitter" },
+  { name: "X", href: "#", icon: "fa6-brands:x-twitter" },
   { name: "LinkedIn", href: "#", icon: "mdi:linkedin" },
 ];
