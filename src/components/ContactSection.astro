@@ -17,21 +17,7 @@ import { Icon } from "astro-icon/components";
 
       <!-- Datos de Contacto -->
       <div class="space-y-6 mb-10">
-        <div class="flex items-start gap-4">
-          <div
-            class="w-10 h-10 rounded-full bg-blue-100 dark:bg-slate-800 flex items-center justify-center text-comea-main dark:text-blue-400 shrink-0 mt-1"
-          >
-            <Icon name="fa6-solid:location-dot" />
-          </div>
-          <div>
-            <h4 class="font-bold text-slate-800 dark:text-slate-100">
-              Oficinas Centrales
-            </h4>
-            <p class="text-sm text-slate-500 dark:text-slate-400">
-              Av. Universidad 123, Col. Del Valle, 03100 CDMX, México
-            </p>
-          </div>
-        </div>
+        <!-- Dirección Eliminada -->
         <div class="flex items-start gap-4">
           <div
             class="w-10 h-10 rounded-full bg-blue-100 dark:bg-slate-800 flex items-center justify-center text-comea-main dark:text-blue-400 shrink-0 mt-1"
@@ -40,11 +26,22 @@ import { Icon } from "astro-icon/components";
           </div>
           <div>
             <h4 class="font-bold text-slate-800 dark:text-slate-100">
-              Correo Electrónico
+              Correos Electrónicos
             </h4>
-            <p class="text-sm text-slate-500 dark:text-slate-400">
-              contacto@comea.org.mx
-            </p>
+            <div
+              class="text-sm text-slate-500 dark:text-slate-400 flex flex-col"
+            >
+              <a
+                href="mailto:presidencia@comea.org.mx"
+                class="hover:text-comea-main transition"
+                >presidencia@comea.org.mx</a
+              >
+              <a
+                href="mailto:secretaria@comea.org.mx"
+                class="hover:text-comea-main transition"
+                >secretaria@comea.org.mx</a
+              >
+            </div>
           </div>
         </div>
         <div class="flex items-start gap-4">
@@ -55,11 +52,16 @@ import { Icon } from "astro-icon/components";
           </div>
           <div>
             <h4 class="font-bold text-slate-800 dark:text-slate-100">
-              Teléfono
+              Teléfono / WhatsApp
             </h4>
-            <p class="text-sm text-slate-500 dark:text-slate-400">
-              +52 55 1234 5678
-            </p>
+            <a
+              href="https://wa.link/hmmpei"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-slate-500 dark:text-slate-400 hover:text-comea-main transition cursor-pointer"
+            >
+              +52 427 100 8179
+            </a>
           </div>
         </div>
       </div>

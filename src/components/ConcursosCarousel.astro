@@ -16,53 +16,64 @@ import { Image } from "astro:assets";
 
 // Placeholder images - En producción vendrían del CMS
 // Usamos imágenes de placeholder por ahora para la demostración
-const PLACEHOLDER_IMG = "https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop";
+const PLACEHOLDER_IMG =
+  "https://images.unsplash.com/photo-1517976487492-5750f3195933?q=80&w=2070&auto=format&fit=crop";
 
 const CONCURSOS = [
   {
     id: 1,
     title: "Premio Nacional de Diseño Aeroespacial 2025",
-    image: "https://images.unsplash.com/photo-1559297434-fae8a1916a79?q=80&w=2070&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1559297434-fae8a1916a79?q=80&w=2070&auto=format&fit=crop",
     link: "#",
-    date: "Cierra: 30 de Noviembre"
+    date: "Cierra: 30 de Noviembre",
   },
   {
     id: 2,
     title: "Desafío de CubeSats Universitarios",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
     link: "#",
-    date: "Cierra: 15 de Octubre"
+    date: "Cierra: 15 de Octubre",
   },
   {
     id: 3,
     title: "Innovación en Materiales Compuestos",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
     link: "#",
-    date: "Cierra: 10 de Diciembre"
-  }
+    date: "Cierra: 10 de Diciembre",
+  },
 ];
 ---
 
-<section id="concursos-carousel" class="py-12 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden">
+<section
+  id="concursos-carousel"
+  class="py-12 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
     <!-- Encabezado con controles -->
     <div class="flex justify-between items-end mb-8">
       <div>
-        <span class="text-comea-main dark:text-comea-tech font-bold uppercase tracking-wider text-sm">Oportunidades</span>
-        <h2 class="text-3xl font-bold text-slate-800 dark:text-white mt-1">Concursos Destacados</h2>
+        <span
+          class="text-comea-main dark:text-comea-tech font-bold uppercase tracking-wider text-sm"
+          >Oportunidades</span
+        >
+        <h2 class="text-3xl font-bold text-slate-800 dark:text-white mt-1">
+          Concursos Destacados
+        </h2>
       </div>
-      
-      <!-- Controles de Navegación -->
+
+      <!-- Controles de Navegación (Ocultos temporalmente) -->
       <div class="flex gap-2">
-        <button 
+        <button
           id="prev-btn"
           aria-label="Anterior"
           class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-500 hover:bg-comea-main hover:text-white hover:border-comea-main transition-all"
         >
           <Icon name="fa6-solid:arrow-left" />
         </button>
-        <button 
+        <button
           id="next-btn"
           aria-label="Siguiente"
           class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-500 hover:bg-comea-main hover:text-white hover:border-comea-main transition-all"
@@ -72,43 +83,51 @@ const CONCURSOS = [
       </div>
     </div>
 
-    <!-- Carrusel -->
-    <div 
-      id="carousel-track"
-      class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 -mx-4 px-4 scroll-smooth no-scrollbar"
-    >
-      {CONCURSOS.map((item) => (
-        <a 
-          href={item.link}
-          class="relative flex-shrink-0 w-[85vw] md:w-[600px] aspect-video rounded-2xl overflow-hidden snap-center group shadow-lg hover:shadow-xl transition-all cursor-pointer block"
-        >
-          <!-- Imagen de Fondo -->
-          <img 
-            src={item.image} 
-            alt={item.title}
-            class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          
-          <!-- Overlay Gradiente -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
-          
-          <!-- Contenido -->
-          <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full">
-            <span class="inline-block px-3 py-1 bg-comea-accent text-white text-xs font-bold rounded-full mb-3 shadow-lg">
-              {item.date}
-            </span>
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-2 leading-tight group-hover:text-blue-200 transition-colors">
-              {item.title}
-            </h3>
-            <div class="flex items-center text-white/80 text-sm font-medium gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-              Ver convocatoria <Icon name="fa6-solid:arrow-right" />
+    <!-- Carrusel con Blur -->
+    <div class="relative">
+      <!-- Contenido Borooso (Detrás) -->
+      <div
+        id="carousel-track"
+        class="flex overflow-x-auto gap-6 pb-4 -mx-4 px-4 no-scrollbar"
+      >
+        {
+          CONCURSOS.map((item) => (
+            <div class="relative flex-shrink-0 w-[85vw] md:w-[600px] aspect-video rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+              <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full">
+                <span class="inline-block px-3 py-1 bg-slate-500 text-white text-xs font-bold rounded-full mb-3">
+                  {item.date}
+                </span>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
+                  {item.title}
+                </h3>
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
-    </div>
+          ))
+        }
+      </div>
 
+      <!-- Mensaje Overlay (Al frente) -->
+      <!-- <div class="absolute inset-0 z-10 flex items-center justify-center p-4">
+        <div
+          class="bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm p-6 rounded-xl text-center max-w-lg border border-white/20"
+        >
+          <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">
+            Pronto tendremos nuevas convocatorias aquí
+          </h3>
+          <p class="text-base text-slate-700 dark:text-slate-200">
+            Estamos trabajando con nuestros aliados de la industria para traerte
+            las mejores oportunidades.
+          </p>
+        </div>
+      </div> -->
+    </div>
   </div>
 </section>
 
@@ -125,26 +144,26 @@ const CONCURSOS = [
 
 <script>
   function initCarousel() {
-    const track = document.getElementById('carousel-track');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const track = document.getElementById("carousel-track");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
 
     if (!track || !prevBtn || !nextBtn) return;
 
     // Ancho de scroll = ancho de tarjeta + gap
     // Aproximación segura: scrollBy window width o card width
-    const scrollAmount = 400; 
+    const scrollAmount = 400;
 
-    prevBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    prevBtn.addEventListener("click", () => {
+      track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     });
 
-    nextBtn.addEventListener('click', () => {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    nextBtn.addEventListener("click", () => {
+      track.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
   }
 
   // Ejecutar al cargar y al transicionar entre páginas (View Transitions)
   initCarousel();
-  document.addEventListener('astro:after-swap', initCarousel);
+  document.addEventListener("astro:after-swap", initCarousel);
 </script>

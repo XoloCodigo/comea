@@ -101,14 +101,15 @@ import { Icon } from "astro-icon/components";
       if (imagesEl) {
         if (data.images && data.images.length > 0) {
           imagesEl.innerHTML = data.images
-            .map(
-              (url) => `
+            .map((img) => {
+              const src = typeof img === "string" ? img : img.src;
+              return `
                         <div class="rounded-lg overflow-hidden shadow-md h-48 group relative cursor-zoom-in">
-                            <img src="${url}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Noticia">
+                            <img src="${src}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Noticia">
                             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                         </div>
-                    `
-            )
+                    `;
+            })
             .join("");
           imagesEl.classList.remove("hidden");
           imagesEl.classList.add("grid"); // Agregar grid cuando se muestra

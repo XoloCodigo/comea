@@ -80,7 +80,7 @@ const vacancies = [
     </div>
 
     <!-- 2. GRID DE EVENTOS -->
-    <div class="max-w-2xl mx-auto mb-12">
+    <div class="mb-12">
       <!-- Evento 1 -->
       <div
         class="bg-white dark:bg-dark-card p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
@@ -147,56 +147,20 @@ const vacancies = [
         </div>
       </div>
 
-      <!-- Listado -->
-      <div class="divide-y divide-slate-100 dark:divide-slate-700">
-        {
-          vacancies.map((job) => (
-            <div class="p-5 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 group cursor-pointer">
-              <div class="flex gap-4 items-center">
-                <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center justify-center font-bold text-slate-500 dark:text-slate-300 shadow-inner shrink-0">
-                  {job.initials}
-                </div>
-                <div>
-                  <h3 class="font-bold text-base text-slate-800 dark:text-slate-100 group-hover:text-comea-main dark:group-hover:text-comea-tech transition-colors">
-                    {job.title}
-                  </h3>
-                  <div class="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    <span class="font-semibold">
-                      <Icon name="fa6-solid:building" class="mr-1 inline" />{" "}
-                      {job.company}
-                    </span>
-                    <span>
-                      <Icon name="fa6-solid:location-dot" class="mr-1 inline" />{" "}
-                      {job.location}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end pl-16 sm:pl-0">
-                <span
-                  class={`px-3 py-1 rounded-full ${job.typeColor} text-[10px] font-bold uppercase tracking-wide`}
-                >
-                  {job.type}
-                </span>
-                <Icon
-                  name="fa6-solid:chevron-right"
-                  class="text-slate-300 group-hover:text-comea-main transition-colors"
-                />
-              </div>
-            </div>
-          ))
-        }
-      </div>
-
-      <!-- Footer de Lista -->
-      <div
-        class="p-4 bg-slate-50 dark:bg-slate-800/50 text-center border-t border-slate-200 dark:border-slate-700"
-      >
-        <button
-          class="text-comea-main dark:text-comea-tech font-bold text-sm hover:underline"
+      <!-- Listado (Empty State) -->
+      <div class="p-12 text-center">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 mb-4"
         >
-          Ver listado completo (70+ vacantes)
-        </button>
+          <Icon name="fa6-solid:clipboard-list" class="text-3xl" />
+        </div>
+        <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">
+          Pronto tendremos vacantes disponibles aquí
+        </h3>
+        <p class="text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+          Estamos trabajando con nuestros aliados de la industria para traerte
+          las mejores oportunidades.
+        </p>
       </div>
     </div>
   </div>

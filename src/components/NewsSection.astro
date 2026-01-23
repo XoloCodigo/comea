@@ -18,6 +18,15 @@
  */
 import { Icon } from 'astro-icon/components';
 
+// Importaciones de imágenes (Vite/Astro procesará esto)
+import famex1 from "../assets/noticias/comea en famex 1.png";
+import famex2 from "../assets/noticias/comea en famex 2.png";
+
+import toma1 from "../assets/noticias/toma de protesta 1.png";
+import toma2 from "../assets/noticias/toma de protesta 2.png";
+import toma3 from "../assets/noticias/toma de protesta 3.png";
+import toma4 from "../assets/noticias/toma de protesta 4.png";
+
 // DATOS DE LAS NOTICIAS
 const newsArticles = [
     {
@@ -27,10 +36,8 @@ const newsArticles = [
         title: 'Participación COMEA en FAMEX 2025',
         summary: 'COMEA tuvo una destacada participación en la Feria Aeroespacial México, fortaleciendo nuestra presencia y generando vínculos estratégicos.',
         images: [
-           'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'https://images.unsplash.com/photo-1559297434-fae8a1916a79?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            famex1,
+            famex2
         ],
         content: `
             <p class="mb-4 text-lg leading-relaxed">El Consejo Mexicano de Educación Aeroespacial (COMEA) se hizo presente con éxito en la Feria Aeroespacial México (FAMEX), consolidando su papel como puente entre la academia y la industria.</p>
@@ -45,24 +52,35 @@ const newsArticles = [
         `
     },
     {
-        id: 'reforma-laboral',
-        date: 'Octubre 2025',
-        category: 'Legislación',
-        title: 'Análisis: Reforma a la Jornada Laboral en México',
-        summary: 'Análisis del impacto de las nuevas reformas laborales en el sector industrial y académico aeroespacial.',
+        id: 'toma-protesta-2024',
+        date: 'Febrero 2024',
+        category: 'Institucional',
+        title: 'Toma de protesta del Consejo Administrativo del COMEA - 2024-2027',
+        summary: 'El COMEA celebró la toma de protesta del nuevo consejo de administración para el periodo 2024-2027, presidido por el Ing. Federico Pérez Fuentes.',
         images: [
-            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            toma1,
+            toma2,
+            toma3,
+            toma4
         ],
         content: `
-            <p class="mb-4 text-lg leading-relaxed">La nueva legislación laboral en México impacta directamente los planes de estudio y la estructura de las prácticas profesionales en el sector aeroespacial.</p>
-            <p class="mb-4 leading-relaxed">COMEA organizó un simposio para analizar las implicaciones para el talento humano y la competitividad del sector.</p>
-            <h3 class="font-bold text-xl text-comea-main dark:text-white mt-6 mb-3">Puntos Clave Discutidos</h3>
-            <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Ajustes en el tiempo dedicado a la capacitación y formación dual.</li>
-                <li>Implicaciones en la certificación de técnicos y especialistas.</li>
-                <li>Necesidad de actualizar el currículo para alinearse a las nuevas horas laborales.</li>
+            <p class="mb-4 text-lg leading-relaxed">Este martes 25 de febrero, el <strong>Consejo Mexicano de Educación Aeroespacial (COMEA)</strong> celebró la toma de protesta del nuevo consejo de administración para el periodo <strong>2024-2027</strong>, marcando un logro en la consolidación de la academia para un impacto al sector aeroespacial en México.</p>
+            
+            <h3 class="font-bold text-xl text-comea-main dark:text-white mt-6 mb-3">Nuevo Consejo Directivo</h3>
+            <p class="mb-4 leading-relaxed">El consejo quedó encabezado por:</p>
+            <ul class="list-disc pl-5 mb-4 space-y-1">
+                <li><strong>Presidente:</strong> Ing. Federico Pérez Fuentes</li>
+                <li><strong>Secretario:</strong> Ing. Sergio Mancinas</li>
+                <li><strong>Tesorero:</strong> Dr. Diego Alfredo Padilla Pérez</li>
             </ul>
+            <p class="mb-4 leading-relaxed">Consejeros: Lic. Guillermo Mejía Ángeles, Dr. José de Jesús Alarcón Córdoba, Mtro. Luis Alfonso Rivera Campos y Dr. Arnulfo Treviño Cubero.</p>
+
+            <h3 class="font-bold text-xl text-comea-main dark:text-white mt-6 mb-3">Visión y Compromiso</h3>
+            <p class="mb-4 leading-relaxed">El <strong>Ing. Federico Pérez Fuentes</strong> expresó el compromiso de la organización por fomentar una vinculación efectiva: <em>"Nuestra meta es ser una plataforma que facilite esta colaboración"</em>.</p>
+            
+            <p class="mb-4 leading-relaxed">Por su parte, el <strong>Ing. Sergio Mancinas</strong> destacó que el COMEA ha sido un referente en la educación aeroespacial en México, fundamental en el crecimiento de las instituciones formadoras de talento.</p>
+
+            <p class="mt-6 text-sm text-slate-500 italic">En el evento se agradeció al Mtro. Jorge Gutiérrez de Velazco, presidente saliente, por su liderazgo y valioso trabajo.</p>
         `
     }
 ];
@@ -78,7 +96,7 @@ const newsArticles = [
                     <!-- Imagen / Icono (Usamos la primera imagen como miniatura) -->
                     <div class="w-full md:w-1/3 h-48 rounded-lg overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700">
                         <img 
-                            src={article.images[0]} 
+                            src={typeof article.images[0] === 'string' ? article.images[0] : article.images[0].src} 
                             alt={`Imagen de ${article.title}`} 
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />

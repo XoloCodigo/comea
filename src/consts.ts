@@ -41,9 +41,9 @@ export const STATS = [
  * Datos mostrados en el footer y sección de contacto.
  */
 export const CONTACT_INFO = {
-  address: "Av. Universidad 123, CDMX, México", // Placeholder, actualizar con dirección real
-  email: "contacto@comea.org.mx", // Placeholder
-  phone: "+52 55 1234 5678", // Placeholder
+  address: "", // Dirección eliminada
+  email: "presidencia@comea.org.mx", 
+  phone: "+52 427 100 8179",
 };
 
 /**
